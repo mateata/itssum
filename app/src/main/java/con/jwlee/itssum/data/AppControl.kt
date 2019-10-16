@@ -1,7 +1,8 @@
 package con.jwlee.itssum.data
 
-class AppSetting {
+class AppControl {
 
+    val DEBUG = true; // 디버그/릴리즈모드 표기(약식)
     // 고정값 : 인천 e음카드 할인률
 
     val incheonCashbag = 0.06; // 인천 전체
@@ -10,5 +11,6 @@ class AppSetting {
     val michuholCashbag = 0.06; // 인천 미추홀구
 
     // 변동값 :
+
 
 }
