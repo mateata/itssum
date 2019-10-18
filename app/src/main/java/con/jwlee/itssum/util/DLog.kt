@@ -4,7 +4,7 @@ import android.util.Log
 import con.jwlee.itssum.data.AppControl
 
 
-class Dlog {
+class DLog {
     val TAG = "ITERROR"
 
     /** Log Level Error  */

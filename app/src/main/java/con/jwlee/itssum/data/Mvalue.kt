@@ -11,6 +11,7 @@ data class Mvalue (
     var southeast : Int, //남동구
     var bupyeong : Int,  //부평구
     var geyang : Int,     //계양구
-    var west : Int     //서구
+    var west : Int,     //서구
+    var average : Int     //평균가격(해당 항목 가격이 없을때 씀)
 
     )
