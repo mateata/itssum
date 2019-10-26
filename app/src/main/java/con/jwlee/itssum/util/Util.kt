@@ -8,7 +8,7 @@ class Util {
 
         try {
             val tempStr = str.replace(",", "")
-            result = Integer.parseInt(tempStr)
+            result = tempStr.toInt()
         } catch (e: Exception) {
 
         }

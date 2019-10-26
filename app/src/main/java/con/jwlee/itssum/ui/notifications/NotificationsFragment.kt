@@ -28,4 +28,16 @@ class NotificationsFragment : Fragment() {
         })
         return root
     }
+
+    companion object {
+        private const val num = "num"
+        @JvmStatic
+        fun newInstance(Number: Int): NotificationsFragment {
+            return NotificationsFragment().apply {
+                arguments = Bundle().apply {
+                    putInt(num, Number)
+                }
+            }
+        }
+    }
 }

@@ -66,7 +66,7 @@ class IntroAct : AppCompatActivity() {
         }
 
         //재래시장 xml파싱, Firestore에 업데이트
-        if(oldDBver <= AppControl().oldDBversion) {
+        if(oldDBver < AppControl().oldDBversion) {
             val marParser = MarketParser()
             val itemList = marParser.mParser(marParser.oldXml, this)
 

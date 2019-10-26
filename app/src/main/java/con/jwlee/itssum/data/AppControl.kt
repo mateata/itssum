@@ -16,14 +16,12 @@ class AppControl {
     val expDBKey = "expDBver"
 
     //인천 e음카드 할인률
-    val incheonCashbag = 0.06 // 인천 전체
-    val westCashbag = 0.06 // 인천 서구
-    val yeonsuCashbag = 0.1 // 인천 연수구 (50만원 이하 기준)
-    val michuholCashbag = 0.06 // 인천 미추홀구
+    val incheonCashbag = 0.97 // 인천 전체 3%, 구별로 다른 적립율은 아래 변수추가
+    val westCashbag = 0.93  // 서구 7%, 30만원 이하 기준
 
     // 변동값 :
 
-    var setLocation = 1; // 1 : 중구, 2 : 동구, 3 : 미추홀구, 4 : 연수구
-
+    var setLocation = 1; // 1 : 중구, 2 : 동구, 3 : 미추홀구, 4 : 연수구, 5: 남동구, 6: 부평구, 7: 계양구, 8: 서구
+    var mGubun = 0; // 0: 대형마트, 1: 재래시장
 
 }
