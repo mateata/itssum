@@ -55,6 +55,8 @@ dependencies {
 
     //권한 설정
     implementation 'gun0912.ted:tedpermission:2.2.2'
+    //우편번호
+    implementation 'com.github.WindSekirun:DaumPostCodeView:1.0.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

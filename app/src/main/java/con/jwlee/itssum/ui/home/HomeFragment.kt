@@ -1,5 +1,6 @@
 package con.jwlee.itssum.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import con.jwlee.itssum.R
 import con.jwlee.itssum.data.AppControl
-import con.jwlee.itssum.data.CompareAdapter
 import con.jwlee.itssum.data.Mvalue
 import con.jwlee.itssum.util.DLog
 import kotlinx.android.synthetic.main.fragment_home.view.*
@@ -40,6 +39,8 @@ class HomeFragment : Fragment() {
         return root
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init(view)
@@ -58,27 +59,26 @@ class HomeFragment : Fragment() {
     }
 
     fun init(root : View) {
-        val linearLayoutManager = LinearLayoutManager(this.requireContext())
-        root.marketTable.setLayoutManager(linearLayoutManager)
-
         AppControl().mGubun = 0
-        setData(root, "bigmarket")
-
-/*        AppControl().mGubun = 1
-        val oldList = setData("oldmarket")
-        adapter = CompareAdapter(oldList)
-        recyclerView.setAdapter(adapter)*/
-
+        val bigList = setData(root, "bigmarket")
+        val oldList = setData(root, "oldmarket")
+        root.button1.setOnClickListener {
+            val intent = Intent(this.requireContext(), MarketListActivity::class.java)
+            intent.putExtra("bigList", bigList)
+            intent.putExtra("oldList", oldList)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+        }
     }
 
 
-    fun setData(view : View, colName : String) {
+    fun setData(view : View, colName : String) : ArrayList<Mvalue> {
         // Firebase Firestore 에서 데이터 읽어와서 Set
 
         var itemList = ArrayList<Mvalue>()
 
         val bigDB= db.collection(colName).get()
-            .addOnSuccessListener { document ->
+            bigDB.addOnSuccessListener { document ->
                 if (document != null) {
                     for (docSnapshot : DocumentSnapshot in document) { // for문을 돌면서 Mvalue객체를 만들고 이를 itemList에 구성
                         //DLog().e("${docSnapshot.id} => ${docSnapshot.data}")
@@ -98,13 +98,9 @@ class HomeFragment : Fragment() {
                                 data.get("west").toString().toInt(),
                                 data.get("average").toString().toInt())
                             itemList.add(mVal)
-                            DLog().e("${mVal.item} => ${mVal.toString()}")
+                            DLog().e("${colName} : ${mVal.item} => ${mVal.toString()}")
                         }
                     }
-                    var adapter = CompareAdapter(itemList)
-                    view.marketTable.adapter = adapter
-                    adapter.notifyDataSetChanged()
-
                 } else {
                     DLog().e("No such document")
                 }
@@ -112,5 +108,6 @@ class HomeFragment : Fragment() {
             .addOnFailureListener { exception ->
                 DLog().e("get failed with : ${exception} ")
             }
+        return itemList
     }
 }
