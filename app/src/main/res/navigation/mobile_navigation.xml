@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="con.jwlee.itssum.ui.dashboard.DashboardFragment"
+        android:name="con.jwlee.itssum.ui.community.CommunityFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="con.jwlee.itssum.ui.notifications.NotificationsFragment"
+        android:name="con.jwlee.itssum.ui.menu.MenuFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

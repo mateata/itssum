@@ -1,4 +1,4 @@
-package con.jwlee.itssum.ui.notifications
+package con.jwlee.itssum.ui.menu
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import con.jwlee.itssum.R
 
-class NotificationsFragment : Fragment() {
+class MenuFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var notificationsViewModel: MenuViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,7 +20,7 @@ class NotificationsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         notificationsViewModel =
-            ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
+            ViewModelProviders.of(this).get(MenuViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_notifications, container, false)
         val textView: TextView = root.findViewById(R.id.text_notifications)
         notificationsViewModel.text.observe(this, Observer {
@@ -32,8 +32,8 @@ class NotificationsFragment : Fragment() {
     companion object {
         private const val num = "num"
         @JvmStatic
-        fun newInstance(Number: Int): NotificationsFragment {
-            return NotificationsFragment().apply {
+        fun newInstance(Number: Int): MenuFragment {
+            return MenuFragment().apply {
                 arguments = Bundle().apply {
                     putInt(num, Number)
                 }

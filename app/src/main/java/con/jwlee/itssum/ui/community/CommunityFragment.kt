@@ -1,22 +1,20 @@
-package con.jwlee.itssum.ui.dashboard
+package con.jwlee.itssum.ui.community
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebViewClient
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import con.jwlee.itssum.MainActivity
 import con.jwlee.itssum.R
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 
-class DashboardFragment : Fragment() {
+class CommunityFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var dashboardViewModel: CommunityViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +22,7 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         dashboardViewModel =
-            ViewModelProviders.of(this).get(DashboardViewModel::class.java)
+            ViewModelProviders.of(this).get(CommunityViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
         dashboardViewModel.text.observe(this, Observer {
@@ -43,8 +41,8 @@ class DashboardFragment : Fragment() {
     companion object {
         private const val num = "num"
         @JvmStatic
-        fun newInstance(Number: Int): DashboardFragment {
-            return DashboardFragment().apply {
+        fun newInstance(Number: Int): CommunityFragment {
+            return CommunityFragment().apply {
                 arguments = Bundle().apply {
                     putInt(num, Number)
                 }

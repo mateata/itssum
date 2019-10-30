@@ -23,7 +23,7 @@ class CompareAdapter(private val items : ArrayList<MData>) : RecyclerView.Adapte
         items[position].let { data ->
             with(holder) {
                 val listener = View.OnClickListener {it ->
-                    Toast.makeText(it.context, "Clicked: ${data.name}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(it.context, "상세 : ${data.name}", Toast.LENGTH_SHORT).show()
                 }
                 itemName.setOnClickListener(listener)
                 itemName.setText(data.item)
@@ -33,6 +33,7 @@ class CompareAdapter(private val items : ArrayList<MData>) : RecyclerView.Adapte
 
                 // 1 : 중구, 2 : 동구, 3 : 미추홀구, 4 : 연수구, 5: 남동구, 6: 부평구, 7: 계양구, 8: 서구
 
+                // old(적립가능) 매장에
                 when (AppControl().setLocation) {
                     4 -> old = (old * AppControl().yeonsuCashbag).toInt() // 연수구 : 10%
                     8 -> old = (old * AppControl().westCashbag).toInt() // 서구 : 7%
@@ -42,6 +43,7 @@ class CompareAdapter(private val items : ArrayList<MData>) : RecyclerView.Adapte
                 bigValue.setText(big.toString())
                 oldValue.setText(old.toString())
 
+                // 양쪽의 가격을 비교하여, 저렴한쪽에 색을 칠한다
                 if(big < old) {
                     bigValue.setTextColor(Color.BLUE)
                     oldValue.setTextColor(Color.BLACK)

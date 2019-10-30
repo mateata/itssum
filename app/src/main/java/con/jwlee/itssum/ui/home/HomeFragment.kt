@@ -71,9 +71,8 @@ class HomeFragment : Fragment() {
         }
     }
 
-
+    // Firebase Firestore 에서 데이터 읽어와서 Set
     fun setData(view : View, colName : String) : ArrayList<Mvalue> {
-        // Firebase Firestore 에서 데이터 읽어와서 Set
 
         var itemList = ArrayList<Mvalue>()
 
@@ -84,6 +83,7 @@ class HomeFragment : Fragment() {
                         //DLog().e("${docSnapshot.id} => ${docSnapshot.data}")
                         val data = docSnapshot.data
                         if (data != null) {
+                            // 데이터 자동전환이 안되어서 수동으로 Set
                             var mVal : Mvalue = Mvalue(
                                 data.get("gubun").toString(),
                                 data.get("item").toString(),
