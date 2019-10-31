@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import con.jwlee.itssum.R
-import con.jwlee.itssum.data.AppControl
 import con.jwlee.itssum.data.Mvalue
 import con.jwlee.itssum.util.DLog
 import kotlinx.android.synthetic.main.fragment_home.view.*
@@ -59,24 +58,59 @@ class HomeFragment : Fragment() {
     }
 
     fun init(root : View) {
-        AppControl().mGubun = 0
-        val bigList = setData(root, "bigmarket")
-        val oldList = setData(root, "oldmarket")
-        root.button1.setOnClickListener {
+
+        val natureBigList = setData("bigmarket",getString(R.string.dbgubun_nature))
+        val natureOldList = setData("oldmarket",getString(R.string.dbgubun_nature))
+
+        val processBigList = setData("bigmarket",getString(R.string.dbgubun_process))
+        val processOldList = setData("oldmarket",getString(R.string.dbgubun_process))
+
+        val industBigList = setData("bigmarket",getString(R.string.dbgubun_industrial))
+        val industOldList = setData("oldmarket",getString(R.string.dbgubun_industrial))
+
+        val diningBigList = setData("bigmarket",getString(R.string.dbgubun_dining))
+        val diningOldList = setData("oldmarket",getString(R.string.dbgubun_dining))
+
+        root.nature_button.setOnClickListener {
             val intent = Intent(this.requireContext(), MarketListActivity::class.java)
-            intent.putExtra("bigList", bigList)
-            intent.putExtra("oldList", oldList)
+            intent.putExtra("bigList", natureBigList)
+            intent.putExtra("oldList", natureOldList)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }
+
+        root.process_button.setOnClickListener {
+            val intent = Intent(this.requireContext(), MarketListActivity::class.java)
+            intent.putExtra("bigList", processBigList)
+            intent.putExtra("oldList", processOldList)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+        }
+
+        root.indust_button.setOnClickListener {
+            val intent = Intent(this.requireContext(), MarketListActivity::class.java)
+            intent.putExtra("bigList", industBigList)
+            intent.putExtra("oldList", industOldList)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+        }
+
+        root.dining_button.setOnClickListener {
+            val intent = Intent(this.requireContext(), MarketListActivity::class.java)
+            intent.putExtra("bigList", diningBigList)
+            intent.putExtra("oldList", diningOldList)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+        }
+
     }
 
     // Firebase Firestore 에서 데이터 읽어와서 Set
-    fun setData(view : View, colName : String) : ArrayList<Mvalue> {
+    fun setData(colName : String, dataGubun : String) : ArrayList<Mvalue> {
 
         var itemList = ArrayList<Mvalue>()
 
-        val bigDB= db.collection(colName).get()
+        val bigDB= db.collection(colName).whereEqualTo("gubun",dataGubun).get()
             bigDB.addOnSuccessListener { document ->
                 if (document != null) {
                     for (docSnapshot : DocumentSnapshot in document) { // for문을 돌면서 Mvalue객체를 만들고 이를 itemList에 구성
