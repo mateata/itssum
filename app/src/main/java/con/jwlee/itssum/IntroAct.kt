@@ -109,7 +109,7 @@ class IntroAct : AppCompatActivity() {
             edit.apply()
         }
 
-        if(expDBver < app.goodDBversion) {
+        if(goodDBver < app.goodDBversion) {
             val comParser = CommunityParser()
             val itemList = comParser.goodParser(this)
 
