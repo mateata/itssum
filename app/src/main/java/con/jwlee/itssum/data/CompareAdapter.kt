@@ -33,7 +33,7 @@ class CompareAdapter(private val items : ArrayList<MData>) : RecyclerView.Adapte
 
                 // 1 : 중구, 2 : 동구, 3 : 미추홀구, 4 : 연수구, 5: 남동구, 6: 부평구, 7: 계양구, 8: 서구
 
-                // old(적립가능) 매장에
+                // old(적립가능 매장)값에 지역별 할인률을 차감하여 값을 다시 set
                 when (AppControl().setLocation) {
                     4 -> old = (old * AppControl().yeonsuCashbag).toInt() // 연수구 : 10%
                     8 -> old = (old * AppControl().westCashbag).toInt() // 서구 : 7%

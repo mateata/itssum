@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import com.google.firebase.firestore.FirebaseFirestore
 import con.jwlee.itssum.data.AppControl
+import con.jwlee.itssum.data.CommunityParser
 import con.jwlee.itssum.data.MarketParser
 import con.jwlee.itssum.util.DLog
 
@@ -43,13 +44,16 @@ class IntroAct : AppCompatActivity() {
     }
 
     fun dbUpdate() {
-        val bigDBver = pref.getInt(AppControl().bigDBKey,0);
-        val oldDBver = pref.getInt(AppControl().oldDBKey,0);
-        val expDBver = pref.getInt(AppControl().expDBKey,0);
-        DLog().e("DB VER ${bigDBver} / ${oldDBver} / ${expDBver} ")
+        val app = AppControl()
+
+        val bigDBver = pref.getInt(app.bigDBKey,0);
+        val oldDBver = pref.getInt(app.oldDBKey,0);
+        val expDBver = pref.getInt(app.expDBKey,0);
+        val goodDBver = pref.getInt(app.goodDBKey,0);
+        DLog().e("DB VER ${bigDBver} / ${oldDBver} / ${expDBver} / ${goodDBver}")
 
         //대형마트 xml파싱, Firestore에 업데이트
-        if(bigDBver < AppControl().bigDBversion) {
+        if(bigDBver < app.bigDBversion) {
             val marParser = MarketParser()
             val itemList = marParser.mParser(marParser.bigXml, this)
 
@@ -63,12 +67,12 @@ class IntroAct : AppCompatActivity() {
                         DLog().e("Error adding document : ${err}" )
                     }
             }
-            edit.putInt(AppControl().bigDBKey, AppControl().bigDBversion) // 작업 완료후 새 버전을 pref에 저장
+            edit.putInt(app.bigDBKey, app.bigDBversion) // 작업 완료후 새 버전을 pref에 저장
             edit.apply()
         }
 
         //재래시장 xml파싱, Firestore에 업데이트
-        if(oldDBver < AppControl().oldDBversion) {
+        if(oldDBver < app.oldDBversion) {
             val marParser = MarketParser()
             val itemList = marParser.mParser(marParser.oldXml, this)
 
@@ -82,12 +86,12 @@ class IntroAct : AppCompatActivity() {
                         DLog().e("Error adding document : ${err}" )
                     }
             }
-            edit.putInt(AppControl().oldDBKey, AppControl().oldDBversion) // 작업 완료후 새 버전을 pref에 저장
+            edit.putInt(app.oldDBKey, app.oldDBversion) // 작업 완료후 새 버전을 pref에 저장
             edit.apply()
         }
 
         //기업형 슈퍼 xml파싱, Firestore에 업데이트
-        if(expDBver < AppControl().expDBversion) {
+        if(expDBver < app.expDBversion) {
             val marParser = MarketParser()
             val itemList = marParser.mParser(marParser.expXml, this)
 
@@ -101,7 +105,25 @@ class IntroAct : AppCompatActivity() {
                         DLog().e("Error adding document : ${err}" )
                     }
             }
-            edit.putInt(AppControl().expDBKey, AppControl().expDBversion) // 작업 완료후 새 버전을 pref에 저장
+            edit.putInt(app.expDBKey, app.expDBversion) // 작업 완료후 새 버전을 pref에 저장
+            edit.apply()
+        }
+
+        if(expDBver < app.goodDBversion) {
+            val comParser = CommunityParser()
+            val itemList = comParser.goodParser(this)
+
+            for(goodData in itemList) {
+                db.collection("gooddata").document(goodData.name)
+                    .set(goodData)
+                    .addOnSuccessListener { documentReference ->
+                        DLog().e(" added with ID: ${goodData.name}")
+                    }
+                    .addOnFailureListener { err ->
+                        DLog().e("Error adding document : ${err}" )
+                    }
+            }
+            edit.putInt(app.goodDBKey, app.goodDBversion) // 작업 완료후 새 버전을 pref에 저장
             edit.apply()
         }
     }
