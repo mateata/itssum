@@ -10,10 +10,12 @@ class AppControl {
     val bigDBversion = 1 // 대형마트
     val oldDBversion = 1 // 재래시장
     val expDBversion = 1 // 기업형슈퍼(홈플 익프)
+    val goodDBversion = 1 // 인천 착한가격업소
 
     val bigDBKey = "bigDBver"
     val oldDBKey = "oldDBver"
     val expDBKey = "expDBver"
+    val goodDBKey = "goodDBver"
 
     val locationKey = "locationKey"
 
