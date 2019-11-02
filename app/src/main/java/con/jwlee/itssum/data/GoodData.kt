@@ -10,6 +10,8 @@ data class GoodData(
     var time : String,
     var delivery : Boolean,
     var parking : Boolean,
+    var previous : Boolean,
+    var favorite : Boolean,
     var itemName1 : String,
     var itemval1 : Int,
     var itemName2 : String,

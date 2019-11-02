@@ -10,7 +10,7 @@ class CommunityParser {
 
     fun goodParser(context : Context): ArrayList<GoodData> {
 
-        var goodData : GoodData = GoodData("","","","","","","",false,false,"",0,"",0,"",0)
+        var goodData : GoodData = GoodData("","","","","","","",false,false,true,false,"",0,"",0,"",0)
         val itemlist = ArrayList<GoodData>()
 
 
@@ -36,7 +36,7 @@ class CommunityParser {
                     var tagName = parser.getName();
 
                     if (tagName.equals("row")){ //각 열 태그(Row) 시작시 객체 초기화
-                        goodData = GoodData("","","","","","","",false,false,"",0,"",0,"",0)
+                        goodData = GoodData("","","","","","","",false,false,true,false,"",0,"",0,"",0)
                     } else if (tagName.equals("업종")) {
                         tagID = 1;
                     } else if (tagName.equals("업소명")) {
@@ -55,18 +55,22 @@ class CommunityParser {
                         tagID = 8;
                     } else if (tagName.equals("주차여부")) {
                         tagID = 9;
-                    } else if (tagName.equals("품목1")) {
+                    } else if (tagName.equals("기존등록")) {
                         tagID = 10;
-                    } else if (tagName.equals("가격1")) {
+                    } else if (tagName.equals("즐겨찾기")) {
                         tagID = 11;
-                    } else if (tagName.equals("품목2")) {
+                    }  else if (tagName.equals("품목1")) {
                         tagID = 12;
-                    } else if (tagName.equals("가격2")) {
+                    } else if (tagName.equals("가격1")) {
                         tagID = 13;
-                    } else if (tagName.equals("품목3")) {
+                    } else if (tagName.equals("품목2")) {
                         tagID = 14;
-                    } else if (tagName.equals("가격3")) {
+                    } else if (tagName.equals("가격2")) {
                         tagID = 15;
+                    } else if (tagName.equals("품목3")) {
+                        tagID = 16;
+                    } else if (tagName.equals("가격3")) {
+                        tagID = 17;
                     }
                 }
                 XmlPullParser.END_TAG -> {
@@ -88,6 +92,8 @@ class CommunityParser {
                             7 -> { goodData.time = parser.getText().trim() }
                             8 -> { goodData.delivery = if(parser.getText().trim().equals("Y")) {true} else {false}  }
                             9 -> { goodData.parking = if(parser.getText().trim().equals("Y")) {true} else {false}  }
+                            8 -> { goodData.previous = if(parser.getText().trim().equals("Y")) {true} else {false}  }
+                            9 -> { goodData.favorite = if(parser.getText().trim().equals("Y")) {true} else {false}  }
                             10 -> { goodData.itemName1 = parser.getText().trim() }
                             11 -> { goodData.itemval1 = Util().setNumber(parser.getText().trim()) }
                             12 -> { goodData.itemName2 = parser.getText().trim() }
