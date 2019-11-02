@@ -29,15 +29,4 @@ class MenuFragment : Fragment() {
         return root
     }
 
-    companion object {
-        private const val num = "num"
-        @JvmStatic
-        fun newInstance(Number: Int): MenuFragment {
-            return MenuFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(num, Number)
-                }
-            }
-        }
-    }
 }

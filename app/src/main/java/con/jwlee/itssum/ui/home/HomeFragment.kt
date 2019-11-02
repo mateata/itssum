@@ -45,17 +45,6 @@ class HomeFragment : Fragment() {
         init(view)
     }
 
-    companion object {
-        private const val num = "num"
-        @JvmStatic
-        fun newInstance(Number: Int): HomeFragment {
-            return HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(num, Number)
-                }
-            }
-        }
-    }
 
     fun init(root : View) {
 
