@@ -8,4 +8,13 @@
     <string name="dbgubun_process">가공식품</string>
     <string name="dbgubun_industrial">공산품</string>
     <string name="dbgubun_dining">외식비</string>
+
+    <string name="guplace_middle">중구</string>
+    <string name="guplace_west">서구</string>
+    <string name="guplace_east">동구</string>
+    <string name="guplace_southeast">남동구</string>
+    <string name="guplace_michuhol">미추홀구</string>
+    <string name="guplace_yeonsu">연수구</string>
+    <string name="guplace_bupyeong">부평구</string>
+    <string name="guplace_geyang">계양구</string>
 </resources>
