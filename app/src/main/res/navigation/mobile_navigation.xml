@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="con.jwlee.itssum.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_to_navigation_marketlist"
+            app:destination="@id/navigation_marketlist" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -22,4 +26,11 @@
         android:name="con.jwlee.itssum.ui.menu.MenuFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_marketlist"
+        android:name="con.jwlee.itssum.ui.home.MarketListFragment"
+        android:label="@string/guplace_yeonsu"
+        tools:layout="@layout/market_list_ac" />
+
 </navigation>

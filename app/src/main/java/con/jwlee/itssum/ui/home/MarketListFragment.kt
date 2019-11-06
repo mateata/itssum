@@ -1,7 +1,13 @@
 package con.jwlee.itssum.ui.home
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import con.jwlee.itssum.R
@@ -9,18 +15,37 @@ import con.jwlee.itssum.data.AppControl
 import con.jwlee.itssum.data.CompareAdapter
 import con.jwlee.itssum.data.MData
 import con.jwlee.itssum.data.Mvalue
+import con.jwlee.itssum.ui.menu.MenuViewModel
 import kotlinx.android.synthetic.main.market_list_ac.*
 
-class MarketListActivity : AppCompatActivity() {
+class MarketListFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.market_list_ac)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val root = inflater.inflate(R.layout.market_list_ac, container, false)
+        return root
+    }
 
-        val bigList : ArrayList<Mvalue> = intent.getParcelableArrayListExtra("bigList")
-        val oldList : ArrayList<Mvalue> = intent.getParcelableArrayListExtra("oldList")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init(view)
+    }
 
-        val linearLayoutManager = LinearLayoutManager(this,RecyclerView.VERTICAL,false)
+    fun init(view : View) {
+
+        val bundle = arguments?.getBundle("listData")
+        lateinit var bigList : ArrayList<Mvalue>
+        lateinit var oldList : ArrayList<Mvalue>
+
+        if(bundle != null ) {
+            bigList = bundle.getParcelableArrayList<Mvalue>("bigList") as ArrayList<Mvalue>
+            oldList = bundle.getParcelableArrayList<Mvalue>("oldList") as ArrayList<Mvalue>
+        }
+
+        val linearLayoutManager = LinearLayoutManager(this.requireContext(), RecyclerView.VERTICAL,false)
         marketTable.layoutManager = linearLayoutManager
 
 
@@ -31,8 +56,6 @@ class MarketListActivity : AppCompatActivity() {
         var adapter = CompareAdapter(itemList)
         marketTable.adapter = adapter
         adapter.notifyDataSetChanged()
-
-
     }
 
     // 대형마트 데이터와 재래시장 데이터를 가져와서 가공한다.
@@ -81,5 +104,10 @@ class MarketListActivity : AppCompatActivity() {
 
         return calcList
     }
+    companion object {
 
+        fun newInstance(): MarketListFragment {
+            return MarketListFragment()
+        }
+    }
 }
