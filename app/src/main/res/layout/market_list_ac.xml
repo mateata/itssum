@@ -16,9 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/nav_view"/>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <include
-        android:id="@+id/nav_view"
-        layout="@layout/main_tab" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

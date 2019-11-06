@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import con.jwlee.itssum.R
@@ -55,41 +57,40 @@ class HomeFragment : Fragment() {
         val diningOldList = setData("oldmarket",getString(R.string.dbgubun_dining))
 
         root.nature_button.setOnClickListener {
-            val intent = Intent(this.requireContext(), MarketListActivity::class.java)
+/*            val intent = Intent(this.requireContext(), MarketListActivity::class.java)
             intent.putExtra("bigList", natureBigList)
             intent.putExtra("oldList", natureOldList)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
-/*            var bundle = Bundle()
+            startActivity(intent)*/
+            var bundle = Bundle()
             bundle.putParcelableArrayList("bigList",natureBigList)
             bundle.putParcelableArrayList("oldList",natureOldList)
 
-            (activity as MainActivity).removeFragment(HomeFragment.newInstance())
-            (activity as MainActivity).replaceFragment(MarketListFragment.newInstance(), bundle,"MarketListFragment")*/
+            findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
         }
 
         root.process_button.setOnClickListener {
-            val intent = Intent(this.requireContext(), MarketListActivity::class.java)
-            intent.putExtra("bigList", processBigList)
-            intent.putExtra("oldList", processOldList)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
+            var bundle = Bundle()
+            bundle.putParcelableArrayList("bigList",processBigList)
+            bundle.putParcelableArrayList("oldList",processOldList)
+
+            findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
         }
 
         root.indust_button.setOnClickListener {
-            val intent = Intent(this.requireContext(), MarketListActivity::class.java)
-            intent.putExtra("bigList", industBigList)
-            intent.putExtra("oldList", industOldList)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
+            var bundle = Bundle()
+            bundle.putParcelableArrayList("bigList",industBigList)
+            bundle.putParcelableArrayList("oldList",industOldList)
+
+            findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
         }
 
         root.dining_button.setOnClickListener {
-            val intent = Intent(this.requireContext(), MarketListActivity::class.java)
-            intent.putExtra("bigList", diningBigList)
-            intent.putExtra("oldList", diningOldList)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
+            var bundle = Bundle()
+            bundle.putParcelableArrayList("bigList",diningBigList)
+            bundle.putParcelableArrayList("oldList",diningOldList)
+
+            findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
         }
 
     }

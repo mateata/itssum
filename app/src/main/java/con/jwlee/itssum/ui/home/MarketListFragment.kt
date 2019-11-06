@@ -36,7 +36,7 @@ class MarketListFragment : Fragment() {
 
     fun init(view : View) {
 
-        val bundle = arguments
+        val bundle = arguments?.getBundle("listData")
         lateinit var bigList : ArrayList<Mvalue>
         lateinit var oldList : ArrayList<Mvalue>
 
