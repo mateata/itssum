@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import con.jwlee.itssum.R
@@ -16,6 +18,7 @@ import con.jwlee.itssum.data.CompareAdapter
 import con.jwlee.itssum.data.MData
 import con.jwlee.itssum.data.Mvalue
 import con.jwlee.itssum.ui.menu.MenuViewModel
+import kotlinx.android.synthetic.main.main_toolbar.*
 import kotlinx.android.synthetic.main.market_list_ac.*
 
 class MarketListFragment : Fragment() {
@@ -56,6 +59,11 @@ class MarketListFragment : Fragment() {
         var adapter = CompareAdapter(itemList)
         marketTable.adapter = adapter
         adapter.notifyDataSetChanged()
+
+        bt_back.setOnClickListener {
+            findNavController().navigate(R.id.navigation_home)
+        }
+
     }
 
     // 대형마트 데이터와 재래시장 데이터를 가져와서 가공한다.

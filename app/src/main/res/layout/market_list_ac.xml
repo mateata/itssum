@@ -6,16 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        android:id="@+id/main_toolbar"
+        layout="@layout/main_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/marketTable"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/marketTable"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
         tools:listitem="@layout/market_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_toolbar"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 
