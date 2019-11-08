@@ -41,7 +41,7 @@ class MarketParser {
                 XmlPullParser.START_TAG -> {
                     var tagName = parser.getName();
 
-                    if (tagName.equals("Row")){ //각 열 태그(Row) 시작시 객체 초기화
+                    if (tagName.equals("row")){ //각 열 태그(Row) 시작시 객체 초기화
                         mValue = Mvalue("","","",0,0,0,0,0,0,0,0,0)
                     } else if (tagName.equals("구분")) {
                         tagID = 1;
@@ -70,7 +70,7 @@ class MarketParser {
                     }
                 }
                 XmlPullParser.END_TAG -> {
-                    if (parser.getName().equals("Row")){ //각 열 태그(Row) 종료시 리스트에 add
+                    if (parser.getName().equals("row")){ //각 열 태그(Row) 종료시 리스트에 add
                         DLog().e(mValue.toString())
                         itemlist.add(mValue);
                     }

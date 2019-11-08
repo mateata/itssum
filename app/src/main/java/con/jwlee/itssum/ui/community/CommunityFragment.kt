@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.DocumentSnapshot
@@ -16,6 +18,7 @@ import con.jwlee.itssum.data.GoodAdapter
 import con.jwlee.itssum.data.GoodData
 import con.jwlee.itssum.util.DLog
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
+
 
 class CommunityFragment : Fragment() {
 
@@ -50,9 +53,7 @@ class CommunityFragment : Fragment() {
             7 -> { guPlace = getString(R.string.guplace_geyang) }
             8 -> { guPlace = getString(R.string.guplace_west) }
         }
-        val itemList = setData(guPlace,root)
-
-
+        setData(guPlace,root)
 
 
     }
@@ -93,6 +94,12 @@ class CommunityFragment : Fragment() {
                     }
                 }
                 var adapter = GoodAdapter(itemList)
+                adapter.setOnItemClickListener(object : GoodAdapter.OnItemClickListener {
+                    override fun onItemClick(v: View, position: Int, data: GoodData) {
+                        DLog().e(data.toString())
+                        findNavController().navigate(R.id.navigation_notifications, bundleOf("detailData" to data))
+                    }
+                })
                 view.goodList.adapter = adapter
                 adapter.notifyDataSetChanged()
             } else {
@@ -104,4 +111,13 @@ class CommunityFragment : Fragment() {
             }
         return itemList
     }
+
+
+    companion object {
+
+        fun newInstance(): CommunityFragment {
+            return CommunityFragment()
+        }
+    }
+
 }
