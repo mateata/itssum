@@ -3,18 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="#5858FA" >
+    android:background="@color/colorPrimary" >
 
     <Button
         android:id="@+id/bt_back"
-        android:layout_width="wrap_content"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:background="@null"
-        android:drawableLeft="@drawable/arr_left_w"
+        android:background="@drawable/bt_back"
         android:gravity="center_vertical"
-        android:text="이전"
         android:textColor="#fff"
         android:textSize="14sp" />
 

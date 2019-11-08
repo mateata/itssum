@@ -1,5 +1,7 @@
 package con.jwlee.itssum.data
 
+import java.io.Serializable
+
 data class GoodData(
     var sector : String,
     var name : String,
@@ -17,4 +19,5 @@ data class GoodData(
     var itemName2 : String,
     var itemval2 : Int,
     var itemName3 : String,
-    var itemval3 : Int)
+    var itemval3 : Int
+) : Serializable

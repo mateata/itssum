@@ -22,7 +22,6 @@ import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 
 class CommunityFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: CommunityViewModel
     val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
@@ -30,8 +29,6 @@ class CommunityFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProviders.of(this).get(CommunityViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
         init(root)
         return root
@@ -97,7 +94,9 @@ class CommunityFragment : Fragment() {
                 adapter.setOnItemClickListener(object : GoodAdapter.OnItemClickListener {
                     override fun onItemClick(v: View, position: Int, data: GoodData) {
                         DLog().e(data.toString())
-                        findNavController().navigate(R.id.navigation_notifications, bundleOf("detailData" to data))
+                        var bundle = Bundle()
+                        bundle.putSerializable("goodData", data)
+                        findNavController().navigate(R.id.navigation_gooddetail, bundleOf("detailData" to bundle))
                     }
                 })
                 view.goodList.adapter = adapter
