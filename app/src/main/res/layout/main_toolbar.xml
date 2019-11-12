@@ -3,20 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="#5858FA" >
+    android:background="@color/colorPrimary" >
 
     <Button
         android:id="@+id/bt_back"
-        android:layout_width="wrap_content"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="16dp"
         android:layout_centerVertical="true"
-        android:background="@null"
-        android:drawableLeft="@drawable/arr_left_w"
-        android:gravity="center_vertical"
-        android:text="이전"
-        android:textColor="#fff"
-        android:textSize="14sp" />
+        android:background="@drawable/bt_back"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"/>
 
     <TextView
         android:id="@+id/header_title"
@@ -31,17 +29,14 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/bt_ok"
+        android:id="@+id/bt_search"
         android:layout_width="50dp"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
         android:paddingLeft="0dp"
         android:paddingRight="0dp"
-        android:background="@drawable/btn_link_g"
-        android:text="완료"
-        android:textColor="#fff"
-        android:textSize="14sp" />
+        android:background="@drawable/bt_search" />
 
 </RelativeLayout>

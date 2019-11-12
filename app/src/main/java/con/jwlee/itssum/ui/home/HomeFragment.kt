@@ -1,22 +1,23 @@
 package con.jwlee.itssum.ui.home
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import con.jwlee.itssum.MainActivity
 import con.jwlee.itssum.R
 import con.jwlee.itssum.data.Mvalue
+import con.jwlee.itssum.ui.BaseActivity
+import con.jwlee.itssum.ui.BaseFragment
 import con.jwlee.itssum.util.DLog
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
     val db = FirebaseFirestore.getInstance()
 
@@ -27,6 +28,11 @@ class HomeFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(con.jwlee.itssum.R.layout.fragment_home, container, false)
         return root
+    }
+
+    override fun onBack() {
+        super.onBack()
+        MainActivity().onBackPressed()
     }
 
     companion object {

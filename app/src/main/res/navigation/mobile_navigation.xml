@@ -33,4 +33,10 @@
         android:label="@string/guplace_yeonsu"
         tools:layout="@layout/market_list_ac" />
 
+    <fragment
+        android:id="@+id/navigation_gooddetail"
+        android:name="con.jwlee.itssum.ui.community.GoodDetailFragment"
+        android:label="@string/guplace_yeonsu"
+        tools:layout="@layout/good_detail" />
+
 </navigation>

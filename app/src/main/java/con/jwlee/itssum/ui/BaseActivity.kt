@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import con.jwlee.itssum.R
+import con.jwlee.itssum.util.DLog
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_tab.view.*
 
 
