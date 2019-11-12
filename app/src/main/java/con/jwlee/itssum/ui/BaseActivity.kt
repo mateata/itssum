@@ -3,6 +3,7 @@ package con.jwlee.itssum.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import con.jwlee.itssum.R
@@ -43,8 +44,15 @@ open class BaseActivity : AppCompatActivity() {
     /* 자바에서 와일드카드로 쓰이는 <?>는 코틀린에선 <*>로 쓰인다 */
     fun startNextActivity(className: Class<*>) {
         var intent = Intent(this, className);
+        intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
         startActivity(intent)
     }
 
+    fun toastLong(str : String) {
+        Toast.makeText(this,str, Toast.LENGTH_LONG).show()
+    }
+    fun toastShort(str : String) {
+        Toast.makeText(this,str, Toast.LENGTH_SHORT).show()
+    }
 
 }

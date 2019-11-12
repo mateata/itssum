@@ -35,11 +35,8 @@ class SplashActivity : BaseActivity(), View.OnTouchListener {
 
         flipper.setOnTouchListener(this)
         skipbtn.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
+            startNextActivity(SetLocalActivity::class.java)
         }
-
     }
 
     var idx = 0

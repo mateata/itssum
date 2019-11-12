@@ -27,11 +27,11 @@ class IntroAct : AppCompatActivity() {
         edit = pref.edit()
 
         // 지역설정을 불러낸다. (기본값 : 연수구 = 4)
-        AppControl().setLocation = pref.getInt(AppControl().locationKey,4)
+        AppControl().setLocation = pref.getInt(AppControl().locationKey,1)
 
         window.decorView.postDelayed({
             val intent = Intent(this, SplashActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
             startActivity(intent)
             // 액티비티 이동시 페이드인/아웃 효과를 보여준다. 즉, 인트로 화면이 부드럽게 사라진다.
             overridePendingTransition(
