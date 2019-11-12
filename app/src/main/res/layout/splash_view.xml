@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/White">
@@ -8,10 +10,12 @@
         android:id="@+id/flipper_view"
         android:layout_marginTop="0dp"
         android:paddingTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:paddingBottom="0dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/skipbtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
         <ImageView
             android:id="@+id/img01"
             android:layout_width="match_parent"
@@ -27,7 +31,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/splash3"/>
+
     </ViewFlipper>
 
-    <
-</LinearLayout>
+    <Button
+        android:id="@+id/skipbtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/skipbtn"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flipper_view"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
