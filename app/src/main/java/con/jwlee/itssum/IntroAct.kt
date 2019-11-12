@@ -9,6 +9,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import con.jwlee.itssum.data.AppControl
 import con.jwlee.itssum.data.CommunityParser
 import con.jwlee.itssum.data.MarketParser
+import con.jwlee.itssum.ui.splash.SplashActivity
 import con.jwlee.itssum.util.DLog
 
 
@@ -29,7 +30,7 @@ class IntroAct : AppCompatActivity() {
         AppControl().setLocation = pref.getInt(AppControl().locationKey,4)
 
         window.decorView.postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, SplashActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
             // 액티비티 이동시 페이드인/아웃 효과를 보여준다. 즉, 인트로 화면이 부드럽게 사라진다.
