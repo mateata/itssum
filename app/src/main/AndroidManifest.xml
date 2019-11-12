@@ -33,6 +33,11 @@
 
         <activity
             android:name=".ui.splash.SplashActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.splash.SetLocalActivity"
             android:screenOrientation="portrait">
         </activity>
     </application>

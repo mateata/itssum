@@ -1,5 +1,6 @@
 package con.jwlee.itssum.ui.splash
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.ViewFlipper
 import con.jwlee.itssum.R
 import kotlinx.android.synthetic.main.splash_view.*
 import android.view.animation.AnimationUtils
+import con.jwlee.itssum.MainActivity
 
 
 class SplashActivity : BaseActivity(), View.OnTouchListener {
@@ -32,10 +34,12 @@ class SplashActivity : BaseActivity(), View.OnTouchListener {
 
 
         flipper.setOnTouchListener(this)
-
-
+        skipbtn.setOnClickListener {
+            startNextActivity(SetLocalActivity::class.java)
+        }
     }
 
+    var idx = 0
     var m_preTouchPosX = 0
     override fun onTouch(v: View, event: MotionEvent): Boolean {
         if(event.action == MotionEvent.ACTION_DOWN) {
@@ -58,14 +62,28 @@ class SplashActivity : BaseActivity(), View.OnTouchListener {
 
 
     fun moveNextView() {
+        if(idx == 2) {
+            return
+        }
         flipper.inAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_slide_in_right)
         flipper.outAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_slide_out_left)
         flipper.showNext()
+        idx++
+        if(idx == 2) {
+            skipbtn.setBackgroundResource(R.drawable.startbtn)
+        }
     }
 
     fun movePreview() {
+        if(idx == 0) {
+            return
+        }
         flipper.inAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_slide_in_left)
         flipper.outAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_slide_out_right)
         flipper.showPrevious()
+        idx--
+        if(idx < 2) {
+            skipbtn.setBackgroundResource(R.drawable.skipbtn)
+        }
     }
 }
