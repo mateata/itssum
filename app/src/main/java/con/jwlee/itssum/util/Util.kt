@@ -4,7 +4,6 @@ import android.content.Context
 import android.widget.Toast
 import android.content.Intent
 import android.content.pm.ResolveInfo
-import android.content.pm.PackageManager
 
 
 
