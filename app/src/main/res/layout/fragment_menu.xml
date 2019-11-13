@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/White">
 
     <include
-        android:id="@+id/home_toolbar"
-        layout="@layout/home_toolbar"
+        android:id="@+id/menu_toolbar"
+        layout="@layout/main_toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -14,14 +15,15 @@
     <LinearLayout
         android:id="@+id/menubtn_layout"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:layout_marginTop="1dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:paddingTop="0dp"
         android:background="@color/White"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/menu_layout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_toolbar">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_toolbar">
 
         <Button
             android:id="@+id/menubtn_calc"
@@ -49,29 +51,37 @@
             android:background="@drawable/menu_icon3" />
     </LinearLayout>
 
+
+
     <LinearLayout
         android:id="@+id/menu_layout"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="360dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menubtn_layout"
         app:layout_constraintBottom_toTopOf="@+id/ieum_view"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="3.5dp"
+            android:background="@color/divide_color"
+            />
+
         <ListView
             android:id="@+id/itssum_menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/header_title" >
-        </ListView>
+            android:layout_gravity="center_vertical"
+            android:divider="@color/White"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ieum_view"
         android:layout_width="match_parent"
-        android:layout_height="87.5dp"
+        android:layout_height="100dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/call_view"
@@ -88,7 +98,7 @@
     <LinearLayout
         android:id="@+id/call_view"
         android:layout_width="match_parent"
-        android:layout_height="87.5dp"
+        android:layout_height="100dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

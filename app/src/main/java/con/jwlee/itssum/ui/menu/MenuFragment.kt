@@ -8,14 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import con.jwlee.itssum.R
-import con.jwlee.itssum.ui.BaseActivity
 import con.jwlee.itssum.ui.BaseFragment
 import con.jwlee.itssum.ui.splash.SetLocalActivity
 import con.jwlee.itssum.util.Util
 import kotlinx.android.synthetic.main.fragment_menu.*
+import kotlinx.android.synthetic.main.home_toolbar.*
+import kotlinx.android.synthetic.main.home_toolbar.bt_search
+import kotlinx.android.synthetic.main.home_toolbar.header_title
+import kotlinx.android.synthetic.main.main_toolbar.*
 
 
-class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener {
+class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener, View.OnClickListener {
+
 
     var array_Menu: ArrayList<MenuItem> = ArrayList<MenuItem>()
     lateinit var menuAdapter : MenuAdapter
@@ -38,10 +42,33 @@ class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener {
         itssum_menu.setOnItemClickListener(this)
         itssum_menu.adapter = menuAdapter
         (itssum_menu.adapter as MenuAdapter).notifyDataSetChanged()
+
+        bt_back.visibility = View.GONE
+        bt_search.visibility = View.GONE
+        header_title.setText(R.string.title_menu)
+
+        // 남은 버튼에 리스너 등록
+        menubtn_calc.setOnClickListener(this)
+        menubtn_favorite.setOnClickListener(this)
+        menubtn_market.setOnClickListener(this)
+        ieum_view.setOnClickListener(this)
+
     }
 
+    override fun onClick(v: View) {
+        when(v.id) {
+            R.id.ieum_view -> {
+                val intent : Intent =
+                    mContext.getPackageManager().getLaunchIntentForPackage("gov.incheon.incheonercard")!!;
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent)
+            }
+            else -> {Util().toastLong(mContext, getString(R.string.menu_prepare))}
+        }
 
+    }
 
+    // 리스트에 있는 아이템 클릭
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         when(position) {
             0 -> { //지역재설정으로 이
@@ -53,6 +80,7 @@ class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener {
             2 -> { Util().toastLong(mContext, getString(R.string.menu_prepare)) }
             3 -> { Util().toastLong(mContext, getString(R.string.menu_prepare)) }
             4 -> { Util().toastLong(mContext, getString(R.string.menu_prepare)) }
+            else -> {Util().toastLong(mContext, getString(R.string.menu_prepare))}
         }
     }
 

@@ -1,14 +1,9 @@
 package con.jwlee.itssum.ui.home
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +13,6 @@ import con.jwlee.itssum.data.CompareAdapter
 import con.jwlee.itssum.data.MData
 import con.jwlee.itssum.data.Mvalue
 import con.jwlee.itssum.ui.BaseFragment
-import con.jwlee.itssum.ui.menu.MenuViewModel
 import kotlinx.android.synthetic.main.main_toolbar.*
 import kotlinx.android.synthetic.main.market_list_ac.*
 
