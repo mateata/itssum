@@ -6,13 +6,13 @@
     android:background="@color/colorPrimary" >
 
     <Button
-        android:id="@+id/bt_back"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:id="@+id/bt_location"
+        android:layout_width="70dp"
+        android:layout_height="35dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="16dp"
         android:layout_centerVertical="true"
-        android:background="@drawable/bt_back"
+        android:background="@drawable/local_yeonsu"
         android:paddingLeft="0dp"
         android:paddingRight="0dp"/>
 
