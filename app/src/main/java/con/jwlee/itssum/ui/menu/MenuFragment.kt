@@ -2,6 +2,7 @@ package con.jwlee.itssum.ui.menu
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,6 @@ import con.jwlee.itssum.ui.BaseFragment
 import con.jwlee.itssum.ui.splash.SetLocalActivity
 import con.jwlee.itssum.util.Util
 import kotlinx.android.synthetic.main.fragment_menu.*
-import kotlinx.android.synthetic.main.home_toolbar.*
 import kotlinx.android.synthetic.main.home_toolbar.bt_search
 import kotlinx.android.synthetic.main.home_toolbar.header_title
 import kotlinx.android.synthetic.main.main_toolbar.*
@@ -57,11 +57,17 @@ class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener, View.OnCli
 
     override fun onClick(v: View) {
         when(v.id) {
-            R.id.ieum_view -> {
-                val intent : Intent =
-                    mContext.getPackageManager().getLaunchIntentForPackage("gov.incheon.incheonercard")!!;
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent)
+            R.id.ieum_view -> { // 하단 이음어플 바로가기
+                if(Util().getPackageList(mContext)) {
+                    val intent : Intent =
+                        mContext.getPackageManager().getLaunchIntentForPackage("gov.incheon.incheonercard")!!;
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent)
+                } else {
+                    val url = "market://details?id=" + "gov.incheon.incheonercard";
+                    val i : Intent = Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(i);
+                }
             }
             else -> {Util().toastLong(mContext, getString(R.string.menu_prepare))}
         }
