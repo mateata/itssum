@@ -59,7 +59,7 @@ class MarketListFragment : BaseFragment() {
 
         var adapter = CompareAdapter(itemList)
         marketTable.adapter = adapter
-        adapter.notifyDataSetChanged()
+        (marketTable.adapter as CompareAdapter).notifyDataSetChanged()
 
         bt_back.setOnClickListener {
             findNavController().navigate(R.id.navigation_home)

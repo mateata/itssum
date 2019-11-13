@@ -1,5 +1,8 @@
 package con.jwlee.itssum.util
 
+import android.content.Context
+import android.widget.Toast
+
 class Util {
 
     // 문자열을 Int로. 만약 변환안되는 값이면 0으로 리턴
@@ -16,9 +19,8 @@ class Util {
         return result
     }
 
-    fun setLocation() {
-
-
+    fun toastLong(context : Context, str : String) {
+        Toast.makeText(context, str, Toast.LENGTH_LONG).show()
     }
 
 }
