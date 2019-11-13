@@ -17,11 +17,12 @@ import con.jwlee.itssum.data.AppControl
 import con.jwlee.itssum.data.CompareAdapter
 import con.jwlee.itssum.data.MData
 import con.jwlee.itssum.data.Mvalue
+import con.jwlee.itssum.ui.BaseFragment
 import con.jwlee.itssum.ui.menu.MenuViewModel
 import kotlinx.android.synthetic.main.main_toolbar.*
 import kotlinx.android.synthetic.main.market_list_ac.*
 
-class MarketListFragment : Fragment() {
+class MarketListFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -112,6 +113,12 @@ class MarketListFragment : Fragment() {
 
         return calcList
     }
+
+    fun onBackPressed() {
+        findNavController().navigate(R.id.navigation_home)
+    }
+
+
     companion object {
 
         fun newInstance(): MarketListFragment {
