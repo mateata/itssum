@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">인천e씀</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">커뮤니티</string>
+    <string name="title_dashboard">착한가게</string>
     <string name="title_menu">메뉴</string>
+    <string name="title_favorite">내가찜한가게</string>
 
     <string name="dbgubun_nature">농축수산물</string>
     <string name="dbgubun_process">가공식품</string>
