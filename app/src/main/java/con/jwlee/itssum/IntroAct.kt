@@ -61,7 +61,7 @@ class IntroAct : AppCompatActivity() {
             for(mVal in itemList) {
                 db.collection("bigmarket").document(mVal.item)
                     .set(mVal)
-                    .addOnSuccessListener { documentReference ->
+                    .addOnSuccessListener {
                         DLog().e(" added with ID: ${mVal.item}")
                     }
                     .addOnFailureListener { err ->
@@ -80,7 +80,7 @@ class IntroAct : AppCompatActivity() {
             for(mVal in itemList) {
                 db.collection("oldmarket").document(mVal.item)
                     .set(mVal)
-                    .addOnSuccessListener { documentReference ->
+                    .addOnSuccessListener {
                         DLog().e(" added with ID: ${mVal.item}")
                     }
                     .addOnFailureListener { err ->
@@ -99,7 +99,7 @@ class IntroAct : AppCompatActivity() {
             for(mVal in itemList) {
                 db.collection("expmarket").document(mVal.item)
                     .set(mVal)
-                    .addOnSuccessListener { documentReference ->
+                    .addOnSuccessListener {
                         DLog().e(" added with ID: ${mVal.item}")
                     }
                     .addOnFailureListener { err ->
@@ -117,7 +117,7 @@ class IntroAct : AppCompatActivity() {
             for(goodData in itemList) {
                 db.collection("gooddata").document(goodData.name)
                     .set(goodData)
-                    .addOnSuccessListener { documentReference ->
+                    .addOnSuccessListener {
                         DLog().e(" added with ID: ${goodData.name}")
                     }
                     .addOnFailureListener { err ->

@@ -9,4 +9,7 @@
     <color name="Red">#D81B60</color>
     <color name="White">#FFFFFF</color>
 
+    <color name="Call_color">#FFd255</color>
+    <color name="Ieum_color">#F8b83d</color>
+
 </resources>

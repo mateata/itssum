@@ -34,10 +34,10 @@ class MarketListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init(view)
+        init()
     }
 
-    fun init(view : View) {
+    fun init() {
 
         val bundle = arguments?.getBundle("listData")
         lateinit var bigList : ArrayList<Mvalue>
