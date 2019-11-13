@@ -8,7 +8,6 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import con.jwlee.itssum.MainActivity
 import con.jwlee.itssum.R
 import con.jwlee.itssum.data.Mvalue
 import con.jwlee.itssum.ui.BaseActivity
@@ -32,7 +31,7 @@ class HomeFragment : BaseFragment() {
 
     override fun onBack() {
         super.onBack()
-        MainActivity().onBackPressed()
+        BaseActivity().onBackPressed()
     }
 
     companion object {

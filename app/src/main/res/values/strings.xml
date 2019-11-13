@@ -2,7 +2,7 @@
     <string name="app_name">인천e씀</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">커뮤니티</string>
-    <string name="title_notifications">메뉴</string>
+    <string name="title_menu">메뉴</string>
 
     <string name="dbgubun_nature">농축수산물</string>
     <string name="dbgubun_process">가공식품</string>
@@ -22,6 +22,14 @@
     <string name="sale_incheon">3%</string>
     <string name="sale_west">7%</string>
     <string name="sale_yeonsu">10%</string>
+
+    <string name="menu_location">내 지역 재설정</string>
+    <string name="menu_notice">공지사항</string>
+    <string name="menu_qna">QnA</string>
+    <string name="menu_help">고객센터/도움말</string>
+    <string name="menu_setting">설정</string>
+
+    <string name="menu_prepare">준비중입니다</string>
 
     <string name="local_title">내 지역 설정하고 시작하기</string>
     <string name="local_text">내 지역을 설정하면 더욱 간편하게 가격을 비교할\n수 있습니다. 나의 지역을 설정하고 시작해보세요!</string>

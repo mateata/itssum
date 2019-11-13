@@ -5,11 +5,13 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="MainColor">#fbc93d</color>
+    <color name="MainColor2">#FFBF3E</color>
     <color name="TextColor">#595757</color>
     <color name="Red">#D81B60</color>
     <color name="White">#FFFFFF</color>
+    <color name="divide_color">#EFEFEF</color>
 
-    <color name="Call_color">#FFd255</color>
-    <color name="Ieum_color">#F8b83d</color>
+    <color name="Call_color">#FF9E4B</color>
+    <color name="Ieum_color">#FFBF3E</color>
 
 </resources>
