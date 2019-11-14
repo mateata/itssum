@@ -37,20 +37,20 @@ class MarketListFragment : BaseFragment() {
         val bundle = arguments?.getBundle("listData")
         lateinit var bigList : ArrayList<Mvalue>
         lateinit var oldList : ArrayList<Mvalue>
+        var categoryName = getString(R.string.market_gubun1)
 
         if(bundle != null ) {
             bigList = bundle.getParcelableArrayList<Mvalue>("bigList") as ArrayList<Mvalue>
             oldList = bundle.getParcelableArrayList<Mvalue>("oldList") as ArrayList<Mvalue>
+            categoryName = bundle.getString("category", getString(R.string.market_gubun1))
         }
 
         val linearLayoutManager = LinearLayoutManager(this.requireContext(), RecyclerView.VERTICAL,false)
         marketTable.layoutManager = linearLayoutManager
 
-
-
         var itemList = calcData(bigList,oldList)
 
-
+        // 가격비교 List Set
         var adapter = CompareAdapter(itemList,this.requireContext())
         marketTable.adapter = adapter
         (marketTable.adapter as CompareAdapter).notifyDataSetChanged()
@@ -59,6 +59,10 @@ class MarketListFragment : BaseFragment() {
             findNavController().navigate(R.id.navigation_home)
         }
 
+        // 타이틀 및 글자 Set
+        header_title.setText(R.string.title_home)
+        cate_name.setText(categoryName)
+        cate_sale.setText(AppControl().setSale + " " + getString(R.string.sale_per_desc))
     }
 
     // 대형마트 데이터와 재래시장 데이터를 가져와서 가공한다.

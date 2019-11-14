@@ -1,31 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include
-        android:id="@+id/main_toolbar"
-        layout="@layout/main_toolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/marketTable"/>
+        android:id="@+id/list_toolbar"
+        layout="@layout/main_toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/category_sale"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="left|bottom">
+
+        <TextView
+            android:id="@+id/cate_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            tools:text="식사" />
+
+        <TextView
+            android:id="@+id/cate_sale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="#523f1c"
+            android:textSize="14dp"
+            tools:text="10% 적립 가능" />
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/table_desc"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:columnCount="3"
+        android:rowCount="1">
+        <TextView
+            android:layout_width="140dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:background="@color/divide_color"
+            android:paddingLeft="10dp"
+            android:text="@string/market_sale_name"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/divide_color"
+            android:gravity="center"
+            android:text="@string/market_sale_yes"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/divide_color"
+            android:text="@string/market_sale_no"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:textSize="16dp"/>
+
+    </GridLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/marketTable"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="@dimen/tap_bottom_margin"
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
-        tools:listitem="@layout/market_item"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_toolbar"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        tools:listitem="@layout/market_item"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

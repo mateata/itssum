@@ -61,39 +61,42 @@ class HomeFragment : BaseFragment() {
         val diningBigList = setData("bigmarket",getString(R.string.dbgubun_dining))
         val diningOldList = setData("oldmarket",getString(R.string.dbgubun_dining))
 
+        //농축수산물 데이터로 이동
         root.nature_button.setOnClickListener {
-/*            val intent = Intent(this.requireContext(), MarketListActivity::class.java)
-            intent.putExtra("bigList", natureBigList)
-            intent.putExtra("oldList", natureOldList)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)*/
             var bundle = Bundle()
             bundle.putParcelableArrayList("bigList",natureBigList)
             bundle.putParcelableArrayList("oldList",natureOldList)
+            bundle.putString("category", getString(R.string.market_gubun1))
 
             findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
         }
 
+        //가공식품 데이터로 이동
         root.process_button.setOnClickListener {
             var bundle = Bundle()
             bundle.putParcelableArrayList("bigList",processBigList)
             bundle.putParcelableArrayList("oldList",processOldList)
+            bundle.putString("category", getString(R.string.market_gubun2))
 
             findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
         }
 
+        //공산품 데이터로 이동
         root.indust_button.setOnClickListener {
             var bundle = Bundle()
             bundle.putParcelableArrayList("bigList",industBigList)
             bundle.putParcelableArrayList("oldList",industOldList)
+            bundle.putString("category", getString(R.string.market_gubun3))
 
             findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
         }
 
+        //외식비 데이터로 이동
         root.dining_button.setOnClickListener {
             var bundle = Bundle()
             bundle.putParcelableArrayList("bigList",diningBigList)
             bundle.putParcelableArrayList("oldList",diningOldList)
+            bundle.putString("category", getString(R.string.market_gubun4))
 
             findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
         }

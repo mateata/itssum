@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">인천e씀</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">가격비교</string>
     <string name="title_dashboard">착한가게</string>
     <string name="title_menu">메뉴</string>
     <string name="title_favorite">내가찜한가게</string>
@@ -48,6 +48,20 @@
     <string name="market_oldname_yeonsu">연수구 평균</string>
     <string name="market_oldname_bupyeong">부평구 평균</string>
     <string name="market_oldname_geyang">계양구 평균</string>
+
+    <string name="market_sale_name">상품명</string>
+    <string name="market_sale_yes">적립 O</string>
+    <string name="market_sale_no">적립 X</string>
+
+    <string name="sale_per_yeonsu">10%</string>
+    <string name="sale_per_west">7%</string>
+    <string name="sale_per_incheon">3%</string>
+    <string name="sale_per_desc">적립 가능</string>
+
+    <string name="market_gubun1">농축수산물</string>
+    <string name="market_gubun2">가공식품</string>
+    <string name="market_gubun3">공산품</string>
+    <string name="market_gubun4">외식비</string>
 
     <string name="local_title">내 지역 설정하고 시작하기</string>
     <string name="local_text">내 지역을 설정하면 더욱 간편하게 가격을 비교할\n수 있습니다. 나의 지역을 설정하고 시작해보세요!</string>
