@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/MainColor" >
+
+    <Button
+        android:id="@+id/bt_back"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="16dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/bt_back"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"/>
+
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+    
+
+    <Button
+        android:id="@+id/bt_search"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:background="@drawable/bt_search" />
+
+</RelativeLayout>

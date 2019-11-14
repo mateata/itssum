@@ -14,8 +14,8 @@ class SetLocalActivity : BaseActivity(), View.OnClickListener {
 
     lateinit var pref : SharedPreferences;
     lateinit var edit : SharedPreferences.Editor;
-    val app = AppControl()
-    
+    var app = AppControl
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.local_act)
@@ -33,9 +33,10 @@ class SetLocalActivity : BaseActivity(), View.OnClickListener {
         local_btn9.setOnClickListener(this)
     }
 
-    var location = 0
+    var location = 1
     var locName : String = ""
     var locSale : String = ""
+
     override fun onClick(v: View) {
         locSale = getString(R.string.sale_incheon)
         when(v.id) {
@@ -79,7 +80,11 @@ class SetLocalActivity : BaseActivity(), View.OnClickListener {
             }
         }
 
-        app.setLocation = location
+
+        app.sLocation = location
+        app.sName = locName
+        app.sSale = locSale
+
         edit.putInt(app.locationKey, location).apply()
         edit.putString(app.saleKey,locSale).apply()
         edit.putString(app.nameKey,locName).apply()

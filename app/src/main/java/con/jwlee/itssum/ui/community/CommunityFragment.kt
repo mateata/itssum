@@ -18,6 +18,7 @@ import con.jwlee.itssum.data.GoodAdapter
 import con.jwlee.itssum.data.GoodData
 import con.jwlee.itssum.util.DLog
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
+import kotlinx.android.synthetic.main.main_toolbar.*
 
 
 class CommunityFragment : Fragment() {
@@ -30,28 +31,21 @@ class CommunityFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        init(root)
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init(view)
     }
 
     fun init(root : View) {
         val linearLayoutManager = LinearLayoutManager(this.requireContext(), RecyclerView.VERTICAL,false)
         root.goodList.layoutManager = linearLayoutManager
 
-        // 지역 설정
-        var guPlace = getString(R.string.guplace_east)
-        when(AppControl().setLocation) {
-            1 -> { guPlace = getString(R.string.guplace_middle) }
-            2 -> { guPlace = getString(R.string.guplace_east) }
-            3 -> { guPlace = getString(R.string.guplace_michuhol) }
-            4 -> { guPlace = getString(R.string.guplace_yeonsu) }
-            5 -> { guPlace = getString(R.string.guplace_southeast) }
-            6 -> { guPlace = getString(R.string.guplace_bupyeong) }
-            7 -> { guPlace = getString(R.string.guplace_geyang) }
-            8 -> { guPlace = getString(R.string.guplace_west) }
-        }
-        setData(guPlace,root)
+        setData(AppControl.sName,root)
 
+        header_title.setText(getString(R.string.title_dashboard))
 
     }
 
@@ -60,7 +54,7 @@ class CommunityFragment : Fragment() {
 
         var itemList = ArrayList<GoodData>()
 
-        val bigDB= db.collection("gooddata").get() //.whereEqualTo("place",guPlace).get()
+        val bigDB= db.collection("gooddata").whereEqualTo("place",guPlace).get()
         bigDB.addOnSuccessListener { document ->
             if (document != null) {
                 for (docSnapshot : DocumentSnapshot in document) { // for문을 돌면서 Mvalue객체를 만들고 이를 itemList에 구성

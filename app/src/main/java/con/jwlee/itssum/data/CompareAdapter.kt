@@ -38,48 +38,48 @@ class CompareAdapter(private val items : ArrayList<MData>, context: Context) : R
                 // 1 : 중구, 2 : 동구, 3 : 미추홀구, 4 : 연수구, 5: 남동구, 6: 부평구, 7: 계양구, 8: 서구
 
                 // old(적립가능 매장)값에 지역별 할인률을 차감하여 값을 다시 set
-                when (AppControl().setLocation) {
+                when (AppControl.sLocation) {
                     1 -> { // 중구
-                        old = (old * AppControl().incheonCashbag).toInt()
+                        old = (old * AppControl.incheonCashbag).toInt()
                         bName = mContext.getString(R.string.market_bigname_middle)
                         oName = mContext.getString(R.string.market_oldname_middle)
                     }
                     2 -> { // 동구
-                        old = (old * AppControl().incheonCashbag).toInt()
+                        old = (old * AppControl.incheonCashbag).toInt()
                         bName = mContext.getString(R.string.market_bigname_east)
                         oName = mContext.getString(R.string.market_oldname_east)
                     }
                     3 -> { // 미추홀구
-                        old = (old * AppControl().incheonCashbag).toInt()
+                        old = (old * AppControl.incheonCashbag).toInt()
                         bName = mContext.getString(R.string.market_bigname_michuhol)
                         oName = mContext.getString(R.string.market_oldname_michuhol)
                     }
                     4 -> { // 연수구 : 10%
-                        old = (old * AppControl().yeonsuCashbag).toInt()
+                        old = (old * AppControl.yeonsuCashbag).toInt()
                         bName = mContext.getString(R.string.market_bigname_yeonsu)
                         oName = mContext.getString(R.string.market_oldname_yeonsu)
                     }
                     5 -> { // 남동구
-                        old = (old * AppControl().incheonCashbag).toInt()
+                        old = (old * AppControl.incheonCashbag).toInt()
                         bName = mContext.getString(R.string.market_bigname_southeast)
                         oName = mContext.getString(R.string.market_oldname_southeast)
                     }
                     6 -> { // 부평구
-                        old = (old * AppControl().incheonCashbag).toInt()
+                        old = (old * AppControl.incheonCashbag).toInt()
                         bName = mContext.getString(R.string.market_bigname_bupyeong)
                         oName = mContext.getString(R.string.market_oldname_bupyeong)
                     }
                     7 -> { // 계양구
-                        old = (old * AppControl().incheonCashbag).toInt()
+                        old = (old * AppControl.incheonCashbag).toInt()
                         bName = mContext.getString(R.string.market_bigname_geyang)
                         oName = mContext.getString(R.string.market_oldname_geyang)
                     }
                     8 -> { // 서구 : 7%
-                        old = (old * AppControl().westCashbag).toInt()
+                        old = (old * AppControl.westCashbag).toInt()
                         bName = mContext.getString(R.string.market_bigname_west)
                         oName = mContext.getString(R.string.market_oldname_west)
                     }
-                    else -> old = (old * AppControl().incheonCashbag).toInt() // 기타 인천지역 : 3%
+                    else -> old = (old * AppControl.incheonCashbag).toInt() // 기타 인천지역 : 3%
                 }
 
                 bigValue.setText(Util().commaNumber(big))

@@ -32,9 +32,10 @@ class IntroAct : AppCompatActivity() {
         edit = pref.edit()
 
         // 지역설정을 불러낸다. (기본값 : 연수구 = 4)
-        AppControl().setLocation = pref.getInt(AppControl().locationKey,1)
-        AppControl().setSale = pref.getString(AppControl().saleKey,"10%").toString()
-        AppControl().setName = pref.getString(AppControl().nameKey,getString(R.string.guplace_yeonsu)).toString()
+
+/*        AppControl(pref.getInt(AppControl.locationKey,1),pref.getString(AppControl.saleKey,"10%").toString(),
+            pref.getString(AppControl.nameKey,getString(R.string.guplace_yeonsu)).toString())*/
+
 
         window.decorView.postDelayed({
             val intent = Intent(this, SplashActivity::class.java)
@@ -53,7 +54,7 @@ class IntroAct : AppCompatActivity() {
     }
 
     fun dbUpdate() {
-        val app = AppControl()
+        val app = AppControl
 
         val bigDBver = pref.getInt(app.bigDBKey,0);
         val oldDBver = pref.getInt(app.oldDBKey,0);

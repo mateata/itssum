@@ -1,9 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/good_toolbar"
+        layout="@layout/good_toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <GridLayout
+            android:id="@+id/good_gubun"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_gravity="center"
+            android:columnCount="4"
+            android:rowCount="1">
+            <TextView
+                android:id="@+id/good_gubun_all"
+                android:layout_width="@dimen/good_gubun_width"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:background="@drawable/good_selected"
+                android:paddingLeft="10dp"
+                android:text="@string/good_gubun_1"
+                android:textColor="@color/White"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:layout_width="@dimen/good_gubun_width"
+                android:layout_height="40dp"
+                android:background="@drawable/line_outer"
+                android:gravity="center"
+                android:text="@string/good_gubun_2"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:layout_width="@dimen/good_gubun_width"
+                android:layout_height="40dp"
+                android:background="@drawable/line_outer"
+                android:text="@string/good_gubun_3"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:layout_width="@dimen/good_gubun_width"
+                android:layout_height="40dp"
+                android:background="@drawable/line_outer"
+                android:text="@string/good_gubun_4"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:textSize="16dp"/>
+
+        </GridLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginLeft="37dp"
+            android:src="@drawable/favorite_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/good_desc_favorite"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:textSize="16dp"/>
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginLeft="90dp"
+            android:src="@drawable/good_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/good_desc_goodcheck"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:textSize="16dp"/>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"/>
+
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/goodList"
@@ -16,4 +119,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

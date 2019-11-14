@@ -16,7 +16,7 @@ import con.jwlee.itssum.ui.BaseFragment
 import con.jwlee.itssum.util.DLog
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import kotlinx.android.synthetic.main.main_toolbar.*
+import kotlinx.android.synthetic.main.main_toolbar.header_title
 
 
 class HomeFragment : BaseFragment() {
@@ -107,8 +107,15 @@ class HomeFragment : BaseFragment() {
         // 리스트 우선 세팅하고 나머지 세부 뷰
 
         header_title.setText(R.string.title_home)
-        home_desc_market.setText(getString(R.string.home_desc_market,AppControl().setName))
-        home_desc_good.setText(getString(R.string.home_desc_good,AppControl().setName))
+        home_desc_market.setText(AppControl.sName + " " + getString(R.string.home_desc_market))
+        home_desc_good.setText(AppControl.sName + " " + getString(R.string.home_desc_good))
+
+        home_desc_temp.setOnClickListener {
+            findNavController().navigate(R.id.navigation_dashboard)
+        }
+        home_desc_good.setOnClickListener {
+            findNavController().navigate(R.id.navigation_dashboard)
+        }
 
     }
 
