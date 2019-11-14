@@ -1,53 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:gravity="center_vertical"
+    android:layout_height="120dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:paddingTop="15dp"
-    android:paddingBottom="15dp">
+    android:paddingTop="10dp"
+    android:paddingBottom="0dp"
+    android:background="@drawable/good_list_item">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="210dp"
         android:layout_height="match_parent"
-        android:layout_weight="8"
+        android:layout_marginLeft="@dimen/good_item_marginleft"
         android:orientation="vertical"
-        android:gravity="center_vertical">
+        android:gravity="left|top">
     <TextView
         android:id="@+id/item_name"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="@string/dbgubun_dining"
-        android:textSize="18dp"/>
+        android:layout_height="wrap_content"
+        tools:text="김밥짜장"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/item_address"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="@string/dbgubun_dining"
-        android:textSize="18dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        tools:text="인천광역시 미추홀구 인하로 259"
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/item_phone"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="@string/dbgubun_dining"
-        android:textSize="18dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        tools:text="032-863-6690"
+        android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="50dp"
         android:layout_height="match_parent"
-        android:layout_weight="2"
         android:orientation="vertical"
-        android:gravity="top">
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="right"
-        android:src="@mipmap/ic_launcher"/>
+        android:gravity="center_horizontal|bottom">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/bt_favorite1" />
     </LinearLayout>
 </LinearLayout>

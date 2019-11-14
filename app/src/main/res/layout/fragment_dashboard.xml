@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="28dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_gravity="center"
@@ -65,7 +65,11 @@
 
         </GridLayout>
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3.5dp"
+        android:background="@color/divide_color"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -73,8 +77,8 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="12dp"
-            android:layout_height="12dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_marginLeft="37dp"
             android:src="@drawable/favorite_icon"/>
 
@@ -87,8 +91,8 @@
             android:textSize="16dp"/>
 
         <ImageView
-            android:layout_width="12dp"
-            android:layout_height="12dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_marginLeft="90dp"
             android:src="@drawable/good_icon"/>
 
@@ -105,9 +109,12 @@
             android:layout_height="25dp"
             android:layout_marginLeft="5dp"/>
 
-
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3.5dp"
+        android:background="@color/divide_color"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/goodList"
         android:layout_width="match_parent"

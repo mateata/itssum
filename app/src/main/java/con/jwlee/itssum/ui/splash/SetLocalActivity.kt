@@ -75,7 +75,7 @@ class SetLocalActivity : BaseActivity(), View.OnClickListener {
                 locSale = getString(R.string.sale_west)
             }
             R.id.local_btn9 -> {
-                location = 9
+                location = 1
                 locName = getString(R.string.guplace_incheon)
             }
         }

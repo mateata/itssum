@@ -16,7 +16,9 @@ import con.jwlee.itssum.R
 import con.jwlee.itssum.data.AppControl
 import con.jwlee.itssum.data.GoodAdapter
 import con.jwlee.itssum.data.GoodData
+import con.jwlee.itssum.ui.RecyclerDeco
 import con.jwlee.itssum.util.DLog
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import kotlinx.android.synthetic.main.main_toolbar.*
 
@@ -46,7 +48,7 @@ class CommunityFragment : Fragment() {
         setData(AppControl.sName,root)
 
         header_title.setText(getString(R.string.title_dashboard))
-
+        goodList.addItemDecoration(RecyclerDeco(12))
     }
 
     // Firebase Firestore 에서 데이터 읽어와서 Set
