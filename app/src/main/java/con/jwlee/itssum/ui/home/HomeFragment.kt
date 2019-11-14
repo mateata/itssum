@@ -9,11 +9,14 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import con.jwlee.itssum.R
+import con.jwlee.itssum.data.AppControl
 import con.jwlee.itssum.data.Mvalue
 import con.jwlee.itssum.ui.BaseActivity
 import con.jwlee.itssum.ui.BaseFragment
 import con.jwlee.itssum.util.DLog
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.main_toolbar.*
 
 
 class HomeFragment : BaseFragment() {
@@ -101,7 +104,11 @@ class HomeFragment : BaseFragment() {
             findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
         }
 
+        // 리스트 우선 세팅하고 나머지 세부 뷰
 
+        header_title.setText(R.string.title_home)
+        home_desc_market.setText(getString(R.string.home_desc_market,AppControl().setName))
+        home_desc_good.setText(getString(R.string.home_desc_good,AppControl().setName))
 
     }
 

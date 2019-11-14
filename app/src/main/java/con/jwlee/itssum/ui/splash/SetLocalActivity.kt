@@ -82,6 +82,7 @@ class SetLocalActivity : BaseActivity(), View.OnClickListener {
         app.setLocation = location
         edit.putInt(app.locationKey, location).apply()
         edit.putString(app.saleKey,locSale).apply()
+        edit.putString(app.nameKey,locName).apply()
         toastLong("${locName} : ${locSale} " + getString(R.string.local_saleintro))
         startNextActivity(MainActivity::class.java)
     }
