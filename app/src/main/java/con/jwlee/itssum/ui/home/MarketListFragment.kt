@@ -64,14 +64,14 @@ class MarketListFragment : BaseFragment() {
         // 타이틀 및 글자 Set
         header_title.setText(R.string.title_home)
         cate_name.setText(categoryName)
-        cate_sale.setText(AppControl().setSale + " " + getString(R.string.sale_per_desc))
+        cate_sale.setText(AppControl.sSale + " " + getString(R.string.sale_per_desc))
     }
 
     // 대형마트 데이터와 재래시장 데이터를 가져와서 가공한다.
     fun calcData (bigList : ArrayList<Mvalue>, oldList : ArrayList<Mvalue>) : ArrayList<MData> {
         var calcList = ArrayList<MData>()
 
-        val app = AppControl()
+        val app = AppControl
 
 
         var oldVal = 0
@@ -86,7 +86,7 @@ class MarketListFragment : BaseFragment() {
 
             // 1 : 중구, 2 : 동구, 3 : 미추홀구, 4 : 연수구, 5: 남동구, 6: 부평구, 7: 계양구, 8: 서구
             // 만약 해당항목의 값이 0이라면 평균값을 넣는다
-            when (app.setLocation) {
+            when (app.sLocation) {
                 1 -> { if(data.middle == 0) bigVal = data.average else bigVal = data.middle }
                 2 -> { if(data.east == 0) bigVal = data.average else bigVal = data.east }
                 3 -> { if(data.michuhol == 0) bigVal = data.average else bigVal = data.michuhol }
@@ -96,7 +96,7 @@ class MarketListFragment : BaseFragment() {
                 7 -> { if(data.geyang == 0) bigVal = data.average else bigVal = data.geyang }
                 8 -> { if(data.west == 0) bigVal = data.average else bigVal = data.west }
             }
-            when (app.setLocation) {
+            when (app.sLocation) {
                 1 -> { if(data2.middle == 0) oldVal = data2.average else oldVal = data2.middle }
                 2 -> { if(data2.east == 0) oldVal = data2.average else oldVal = data2.east }
                 3 -> { if(data2.michuhol == 0) oldVal = data2.average else oldVal = data2.michuhol }
