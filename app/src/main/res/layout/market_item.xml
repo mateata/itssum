@@ -1,29 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="70dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:paddingTop="15dp"
-    android:paddingBottom="15dp">
+    android:paddingTop="10dp"
+    android:paddingBottom="0dp"
+    android:background="@drawable/market_item_bg">
 
-    <TextView
-        android:id="@+id/item_name"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:textSize="16dp"/>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:columnCount="3"
+        android:rowCount="2">
 
-    <TextView
-        android:id="@+id/big_val"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:textSize="16dp"/>
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="120dp"
+            android:layout_rowSpan="2"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/White"
+            android:textStyle="bold"
+            tools:text="@string/app_name"
+            android:ellipsize="marquee"
+            android:textSize="20dp"/>
 
-    <TextView
-        android:id="@+id/old_val"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:textSize="16dp" />
+        <TextView
+            android:id="@+id/old_name"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            tools:text="@string/market_oldname_yeonsu"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/big_name"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            tools:text="@string/market_bigname_yeonsu"
+            android:paddingLeft="10dp"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/old_val"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            tools:text="10000원"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/big_val"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:gravity="right|center_vertical"
+            android:paddingRight="35dp"
+            android:layout_marginTop="5dp"
+            tools:text="10000원"
+            android:textSize="16dp"/>
+
+
+
+    </GridLayout>
+
 
 </LinearLayout>
