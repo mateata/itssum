@@ -13,6 +13,7 @@ import con.jwlee.itssum.data.CompareAdapter
 import con.jwlee.itssum.data.MData
 import con.jwlee.itssum.data.Mvalue
 import con.jwlee.itssum.ui.BaseFragment
+import con.jwlee.itssum.ui.RecyclerDeco
 import kotlinx.android.synthetic.main.main_toolbar.*
 import kotlinx.android.synthetic.main.market_list_ac.*
 
@@ -54,6 +55,7 @@ class MarketListFragment : BaseFragment() {
         var adapter = CompareAdapter(itemList,this.requireContext())
         marketTable.adapter = adapter
         (marketTable.adapter as CompareAdapter).notifyDataSetChanged()
+        marketTable.addItemDecoration(RecyclerDeco(12))
 
         bt_back.setOnClickListener {
             findNavController().navigate(R.id.navigation_home)

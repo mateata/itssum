@@ -101,6 +101,8 @@ class HomeFragment : BaseFragment() {
             findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
         }
 
+
+
     }
 
     // Firebase Firestore 에서 데이터 읽어와서 Set
