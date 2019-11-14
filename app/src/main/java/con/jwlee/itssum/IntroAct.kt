@@ -33,6 +33,8 @@ class IntroAct : AppCompatActivity() {
 
         // 지역설정을 불러낸다. (기본값 : 연수구 = 4)
         AppControl().setLocation = pref.getInt(AppControl().locationKey,1)
+        AppControl().setSale = pref.getString(AppControl().saleKey,"10%").toString()
+
 
         window.decorView.postDelayed({
             val intent = Intent(this, SplashActivity::class.java)
