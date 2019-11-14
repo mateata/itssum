@@ -10,6 +10,7 @@
     <color name="Red">#D81B60</color>
     <color name="White">#FFFFFF</color>
     <color name="divide_color">#EFEFEF</color>
+    <color name="intro_color">#FFBD49</color>
 
     <color name="Call_color">#FF9E4B</color>
     <color name="Ieum_color">#FFBF3E</color>
