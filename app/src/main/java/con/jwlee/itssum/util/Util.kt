@@ -49,4 +49,9 @@ class Util {
 
         return isExist
     }
+
+    fun commaNumber(i : Int) : String {
+        val str = String.format("%,d", i) + "원"
+        return str
+    }
 }

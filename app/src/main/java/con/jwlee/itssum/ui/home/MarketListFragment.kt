@@ -51,7 +51,7 @@ class MarketListFragment : BaseFragment() {
         var itemList = calcData(bigList,oldList)
 
 
-        var adapter = CompareAdapter(itemList)
+        var adapter = CompareAdapter(itemList,this.requireContext())
         marketTable.adapter = adapter
         (marketTable.adapter as CompareAdapter).notifyDataSetChanged()
 
