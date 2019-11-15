@@ -35,6 +35,7 @@ class IntroAct : AppCompatActivity() {
         AppControl.sSale = pref.getString(AppControl.saleKey,"10%").toString()
         AppControl.sName = pref.getString(AppControl.nameKey, getString(R.string.guplace_yeonsu)).toString()
 
+        //데이터 xml 수정시만 오픈
         //dbUpdate()
     }
 
