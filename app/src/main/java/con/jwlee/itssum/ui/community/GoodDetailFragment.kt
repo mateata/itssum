@@ -23,10 +23,10 @@ class GoodDetailFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init(view)
+        init()
     }
 
-    fun init(view : View) {
+    fun init() {
         val bundle = arguments?.getBundle("detailData")
         val goodData : GoodData = bundle?.getSerializable("goodData") as GoodData
         //영역 setText
@@ -35,7 +35,7 @@ class GoodDetailFragment : BaseFragment() {
         place_name.setText(goodData.name)
         place_phone.setText(goodData.phone)
         place_intro.setText(goodData.intro)
-        if(goodData.intro == null) {
+        if("".equals(goodData.intro)) {
             place_intro.visibility = View.GONE
         }
         place_address.setText(goodData.address)
@@ -68,7 +68,6 @@ class GoodDetailFragment : BaseFragment() {
     }
 
     override fun onBack() {
-        super.onBack()
         findNavController().navigate(R.id.navigation_dashboard)
     }
 }

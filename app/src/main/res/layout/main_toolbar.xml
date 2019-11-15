@@ -48,6 +48,7 @@
         android:layout_marginRight="16dp"
         android:paddingLeft="0dp"
         android:paddingRight="0dp"
-        android:background="@drawable/bt_search" />
+        android:background="@drawable/bt_search"
+        android:visibility="gone"/>
 
 </RelativeLayout>

@@ -1,9 +1,14 @@
 package con.jwlee.itssum.ui.home
 
+import android.content.Context
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,10 +19,19 @@ import con.jwlee.itssum.data.MData
 import con.jwlee.itssum.data.Mvalue
 import con.jwlee.itssum.ui.BaseFragment
 import con.jwlee.itssum.ui.RecyclerDeco
+import con.jwlee.itssum.util.Util
+import kotlinx.android.synthetic.main.good_toolbar.*
 import kotlinx.android.synthetic.main.main_toolbar.*
+import kotlinx.android.synthetic.main.main_toolbar.bt_back
+import kotlinx.android.synthetic.main.main_toolbar.bt_search
+import kotlinx.android.synthetic.main.main_toolbar.header_title
 import kotlinx.android.synthetic.main.market_list_ac.*
 
 class MarketListFragment : BaseFragment() {
+
+    lateinit var mContext : Context
+    lateinit var imm : InputMethodManager
+    lateinit var itemList : ArrayList<MData>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +44,7 @@ class MarketListFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mContext = this.requireContext()
         init()
     }
 
@@ -46,13 +61,13 @@ class MarketListFragment : BaseFragment() {
             categoryName = bundle.getString("category", getString(R.string.market_gubun1))
         }
 
-        val linearLayoutManager = LinearLayoutManager(this.requireContext(), RecyclerView.VERTICAL,false)
+        val linearLayoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL,false)
         marketTable.layoutManager = linearLayoutManager
 
-        var itemList = calcData(bigList,oldList)
+        itemList = calcData(bigList,oldList)
 
         // 가격비교 List Set
-        var adapter = CompareAdapter(itemList,this.requireContext())
+        var adapter = CompareAdapter(itemList,mContext)
         marketTable.adapter = adapter
         (marketTable.adapter as CompareAdapter).notifyDataSetChanged()
         marketTable.addItemDecoration(RecyclerDeco(12))
@@ -65,6 +80,11 @@ class MarketListFragment : BaseFragment() {
         header_title.setText(R.string.title_home)
         cate_name.setText(categoryName)
         cate_sale.setText(AppControl.sSale + " " + getString(R.string.sale_per_desc))
+
+        imm = mContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        bt_search.setOnClickListener {
+            searchBtn()
+        }
     }
 
     // 대형마트 데이터와 재래시장 데이터를 가져와서 가공한다.
@@ -114,8 +134,64 @@ class MarketListFragment : BaseFragment() {
         return calcList
     }
 
+    fun searchBtn() {
+        searchEt.visibility = View.VISIBLE
+        searchEt.setOnEditorActionListener(object : TextView.OnEditorActionListener {
+            // TODO : keypad 에서 enter 실행시 Listen하고 동작할 액션을 작성
+            override fun onEditorAction(
+                textView: TextView,
+                i: Int,
+                keyEvent: KeyEvent?
+            ): Boolean { // 텍스트 내용을 가져온다.
+                val searchData = textView.text.toString()
+                // 텍스트 내용이 비어있다면...
+                if (searchData.isEmpty()) { // 토스트 메세지를 띄우고, 창 내용을 비운다
+                    Util().toastLong(mContext,"정보를 입력해주세요")
+                    textView.clearFocus()
+                    textView.isFocusable = false
+                    textView.isFocusableInTouchMode = true
+                    textView.isFocusable = true
+                    return true
+                }
+                when (i) {
+                    EditorInfo.IME_ACTION_DONE -> {
+                        searchComplete(searchData)
+                    }
+                    else ->  // TODO : Write Your Code
+                        return false
+                }
+                // 내용 비우고 다시 이벤트 할수있게 선택
+                textView.clearFocus()
+                textView.isFocusable = false
+                textView.text = ""
+                textView.isFocusableInTouchMode = true
+                textView.isFocusable = true
+                return true
+            }
+        })
+    }
+
+    fun searchComplete(txt : String) {
+        var searchList = ArrayList<MData>()
+        for(mdata in itemList) {
+            if(mdata.item.contains(txt)) {
+                searchList.add(mdata)
+            }
+        }
+
+        if(searchList.size == 0) {
+            Util().toastLong(mContext,mContext.getString(R.string.search_none))
+        } else {
+            var adapter = CompareAdapter(searchList,mContext)
+            marketTable.adapter = adapter
+            (marketTable.adapter as CompareAdapter).notifyDataSetChanged()
+            marketTable.addItemDecoration(RecyclerDeco(12))
+            imm.hideSoftInputFromWindow(searchEt.windowToken, 0)
+            searchEt.visibility = View.GONE
+        }
+    }
+
     override fun onBack() {
-        super.onBack()
         findNavController().navigate(R.id.navigation_home)
     }
 

@@ -13,7 +13,6 @@ import con.jwlee.itssum.ui.BaseFragment
 import con.jwlee.itssum.ui.splash.SetLocalActivity
 import con.jwlee.itssum.util.Util
 import kotlinx.android.synthetic.main.fragment_menu.*
-import kotlinx.android.synthetic.main.home_toolbar.bt_search
 import kotlinx.android.synthetic.main.home_toolbar.header_title
 import kotlinx.android.synthetic.main.main_toolbar.*
 
@@ -44,9 +43,8 @@ class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener, View.OnCli
         (itssum_menu.adapter as MenuAdapter).notifyDataSetChanged()
 
         bt_back.visibility = View.GONE
-        bt_search.visibility = View.GONE
-        header_title.setText(R.string.title_menu)
 
+        header_title.setText(R.string.title_menu)
         // 남은 버튼에 리스너 등록
         menubtn_calc.setOnClickListener(this)
         menubtn_favorite.setOnClickListener(this)
