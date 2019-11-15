@@ -23,7 +23,14 @@ import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import kotlinx.android.synthetic.main.main_toolbar.*
 
 
-class CommunityFragment : Fragment() {
+class CommunityFragment : Fragment(), View.OnClickListener {
+
+    var allList : ArrayList<GoodData> = ArrayList<GoodData>()
+    var sortList : ArrayList<GoodData> = ArrayList<GoodData>()
+    var foodList : ArrayList<GoodData> = ArrayList<GoodData>()
+    var caffeList : ArrayList<GoodData> = ArrayList<GoodData>()
+    var salonList : ArrayList<GoodData> = ArrayList<GoodData>()
+    var goodMarketList : ArrayList<GoodData> = ArrayList<GoodData>()
 
     val db = FirebaseFirestore.getInstance()
 
@@ -45,10 +52,92 @@ class CommunityFragment : Fragment() {
         val linearLayoutManager = LinearLayoutManager(this.requireContext(), RecyclerView.VERTICAL,false)
         root.goodList.layoutManager = linearLayoutManager
 
-        setData(AppControl.sName,root)
+        allList = setData(AppControl.sName,root)
 
         header_title.setText(getString(R.string.title_dashboard))
         goodList.addItemDecoration(RecyclerDeco(12))
+
+        good_gubun_all.setOnClickListener(this)
+        good_gubun_caffe.setOnClickListener(this)
+        good_gubun_food.setOnClickListener(this)
+        good_gubun_salon.setOnClickListener(this)
+        good_check.setOnClickListener(this)
+
+    }
+
+    override fun onClick(v: View) {
+        when(v.id) {
+            R.id.good_gubun_all -> {selectSortBtn(0)}
+            R.id.good_gubun_food -> {selectSortBtn(1)}
+            R.id.good_gubun_caffe -> {selectSortBtn(2)}
+            R.id.good_gubun_salon -> {selectSortBtn(3)}
+            R.id.good_check -> {
+                if (good_check.isChecked()) {
+                    selectSortBtn(4)
+                } else {
+                    selectSortBtn(0)
+                }
+            }
+        }
+    }
+
+    fun itemSort() {
+        for(good in allList) {
+            if(good.previous) { // 착한가게
+                goodMarketList.add(good)
+            }
+
+            if(good.sector.equals("식사")) {
+                foodList.add(good)
+            } else if(good.sector.equals("제과.카페")) {
+                caffeList.add(good)
+            } else {
+                salonList.add(good)
+            }
+        }
+        DLog().e("itemSize = " + allList.size)
+    }
+
+
+    // 분류 버튼 뷰를 바꿔주고 선택한 분류를 보여준다
+    fun selectSortBtn(idx : Int) {
+
+        when(idx) {
+            0 -> {
+                sortList = allList
+                good_gubun_all.background = this.requireContext().getDrawable(R.drawable.good_selected)
+                good_gubun_food.background = this.requireContext().getDrawable(R.drawable.line_outer)
+                good_gubun_caffe.background = this.requireContext().getDrawable(R.drawable.line_outer)
+                good_gubun_salon.background = this.requireContext().getDrawable(R.drawable.line_outer)
+            }
+            1 -> {
+                sortList = foodList
+                good_gubun_all.background = this.requireContext().getDrawable(R.drawable.line_outer)
+                good_gubun_food.background = this.requireContext().getDrawable(R.drawable.good_selected)
+                good_gubun_caffe.background = this.requireContext().getDrawable(R.drawable.line_outer)
+                good_gubun_salon.background = this.requireContext().getDrawable(R.drawable.line_outer)
+            }
+            2 -> {
+                sortList = caffeList
+                good_gubun_all.background = this.requireContext().getDrawable(R.drawable.line_outer)
+                good_gubun_food.background = this.requireContext().getDrawable(R.drawable.line_outer)
+                good_gubun_caffe.background = this.requireContext().getDrawable(R.drawable.good_selected)
+                good_gubun_salon.background = this.requireContext().getDrawable(R.drawable.line_outer)
+            }
+            3 -> {
+                sortList = salonList
+                good_gubun_all.background = this.requireContext().getDrawable(R.drawable.line_outer)
+                good_gubun_food.background = this.requireContext().getDrawable(R.drawable.line_outer)
+                good_gubun_caffe.background = this.requireContext().getDrawable(R.drawable.line_outer)
+                good_gubun_salon.background = this.requireContext().getDrawable(R.drawable.good_selected)
+            }
+            // 4번은 착한가게만 체크박스
+            4 -> { sortList = salonList}
+        }
+
+        var adapter = GoodAdapter(sortList)
+        goodList.adapter = adapter
+        adapter.notifyDataSetChanged()
     }
 
     // Firebase Firestore 에서 데이터 읽어와서 Set
@@ -64,8 +153,10 @@ class CommunityFragment : Fragment() {
                     val data = docSnapshot.data
                     if (data != null) {
                         // 데이터 자동전환이 안되어서 수동으로 Set
+                        var sectorVal = sectorSort(data.get("sector").toString())
+
                         var goodVal : GoodData = GoodData(
-                            data.get("sector").toString(),
+                            sectorVal,
                             data.get("name").toString(),
                             data.get("place").toString(),
                             data.get("address").toString(),
@@ -85,7 +176,7 @@ class CommunityFragment : Fragment() {
                         itemList.add(goodVal)
                         DLog().e("goodData : ${goodVal.name} => ${goodVal.toString()}")
                     }
-                }
+                } // for문 끝
                 var adapter = GoodAdapter(itemList)
                 adapter.setOnItemClickListener(object : GoodAdapter.OnItemClickListener {
                     override fun onItemClick(v: View, position: Int, data: GoodData) {
@@ -97,6 +188,8 @@ class CommunityFragment : Fragment() {
                 })
                 view.goodList.adapter = adapter
                 adapter.notifyDataSetChanged()
+
+                itemSort() // 미리 분류를 준비한다.
             } else {
                 DLog().e("No such document")
             }
@@ -105,6 +198,20 @@ class CommunityFragment : Fragment() {
                 DLog().e("get failed with : ${exception} ")
             }
         return itemList
+    }
+
+    fun sectorSort(sector : String) : String {
+        var sec : String = "식사"
+
+        if(sector.equals("한식") || sector.equals("중식") || sector.equals("일식")) {
+            sec = "식사"
+        } else if(sector.startsWith("기타") || sector.startsWith("양식") || sector.equals("제과업")) {
+            sec = "제과.카페"
+        } else if(sector.endsWith("미용업") || sector.equals("세탁업") || sector.equals("체육시설업")) {
+            sec = "편의시설"
+        }
+
+        return sec
     }
 
 

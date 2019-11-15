@@ -38,6 +38,7 @@
                 android:textSize="16dp"/>
 
             <TextView
+                android:id="@+id/good_gubun_food"
                 android:layout_width="@dimen/good_gubun_width"
                 android:layout_height="40dp"
                 android:background="@drawable/line_outer"
@@ -46,6 +47,7 @@
                 android:textSize="16dp"/>
 
             <TextView
+                android:id="@+id/good_gubun_caffe"
                 android:layout_width="@dimen/good_gubun_width"
                 android:layout_height="40dp"
                 android:background="@drawable/line_outer"
@@ -55,6 +57,7 @@
                 android:textSize="16dp"/>
 
             <TextView
+                android:id="@+id/good_gubun_salon"
                 android:layout_width="@dimen/good_gubun_width"
                 android:layout_height="40dp"
                 android:background="@drawable/line_outer"
@@ -105,6 +108,7 @@
             android:textSize="16dp"/>
 
         <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/good_check"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="5dp"/>

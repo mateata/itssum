@@ -4,15 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import con.jwlee.itssum.R
 import con.jwlee.itssum.data.GoodData
-import con.jwlee.itssum.util.DLog
+import con.jwlee.itssum.ui.BaseFragment
 import kotlinx.android.synthetic.main.good_detail.*
-import kotlinx.android.synthetic.main.good_detail.view.*
 import kotlinx.android.synthetic.main.main_toolbar.*
 
-class GoodDetailFragment : Fragment() {
+class GoodDetailFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,17 +45,30 @@ class GoodDetailFragment : Fragment() {
         if(goodData.parking == true) {
             place_park_yn.setImageResource(R.drawable.check_icon_yes)
             place_park_text.setText(getString(R.string.good_detail_park_y))
+            place_park_text.setTextColor(this.requireContext().getColor(R.color.MainColor))
         } else {
             place_park_yn.setImageResource(R.drawable.check_icon_no)
             place_park_text.setText(getString(R.string.good_detail_park_n))
+            place_park_text.setTextColor(this.requireContext().getColor(R.color.TextColor))
         }
         // 배달여부로 체크와 색상 변경
         if(goodData.delivery == true) {
             place_delivery_yn.setImageResource(R.drawable.check_icon_yes)
             place_delivery_text.setText(getString(R.string.good_detail_delivery_y))
+            place_delivery_text.setTextColor(this.requireContext().getColor(R.color.MainColor))
         } else {
             place_delivery_yn.setImageResource(R.drawable.check_icon_no)
             place_delivery_text.setText(getString(R.string.good_detail_delivery_n))
+            place_delivery_text.setTextColor(this.requireContext().getColor(R.color.TextColor))
         }
+
+        bt_back.setOnClickListener {
+            findNavController().navigate(R.id.navigation_dashboard)
+        }
+    }
+
+    override fun onBack() {
+        super.onBack()
+        findNavController().navigate(R.id.navigation_dashboard)
     }
 }

@@ -114,7 +114,8 @@ class MarketListFragment : BaseFragment() {
         return calcList
     }
 
-    fun onBackPressed() {
+    override fun onBack() {
+        super.onBack()
         findNavController().navigate(R.id.navigation_home)
     }
 
