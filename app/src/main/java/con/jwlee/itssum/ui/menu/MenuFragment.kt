@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.navigation.fragment.findNavController
 import con.jwlee.itssum.R
+import con.jwlee.itssum.data.AppControl
 import con.jwlee.itssum.ui.BaseFragment
 import con.jwlee.itssum.ui.splash.SetLocalActivity
 import con.jwlee.itssum.util.Util
@@ -37,6 +39,7 @@ class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener, View.OnCli
         super.onViewCreated(view, savedInstanceState)
         mContext = this.requireContext()
         addMenus()
+        AppControl.appIdx = 3
         menuAdapter = MenuAdapter(this.requireContext(),R.layout.menu_item, array_Menu)
         itssum_menu.setOnItemClickListener(this)
         itssum_menu.adapter = menuAdapter
@@ -50,7 +53,7 @@ class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener, View.OnCli
         menubtn_favorite.setOnClickListener(this)
         menubtn_market.setOnClickListener(this)
         ieum_view.setOnClickListener(this)
-
+        call_view.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -66,6 +69,9 @@ class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener, View.OnCli
                     val i : Intent = Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     startActivity(i);
                 }
+            }
+            R.id.call_view -> {
+                findNavController().navigate(R.id.navigation_calc)
             }
             else -> {Util().toastLong(mContext, getString(R.string.menu_prepare))}
         }

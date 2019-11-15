@@ -44,7 +44,7 @@ open class BaseActivity : AppCompatActivity() {
     /* 자바에서 와일드카드로 쓰이는 <?>는 코틀린에선 <*>로 쓰인다 */
     fun startNextActivity(className: Class<*>) {
         var intent = Intent(this, className);
-        intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
     }
 

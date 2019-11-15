@@ -109,6 +109,7 @@ class HomeFragment : BaseFragment() {
 
         // 리스트 우선 세팅하고 나머지 세부 뷰
 
+        AppControl.appIdx = 1
         header_title.setText(R.string.title_home)
         home_desc_market.setText(AppControl.sName + " " + getString(R.string.home_desc_market))
         home_desc_good.setText(AppControl.sName + " " + getString(R.string.home_desc_good))
@@ -135,9 +136,12 @@ class HomeFragment : BaseFragment() {
         bt_location.setBackgroundResource(locBtnId)
 
         bt_location.setOnClickListener {
-            val intent = Intent(this.requireContext(), SetLocalActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+            val intent = Intent(activity, SetLocalActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
+        }
+        bt_calc.setOnClickListener {
+            findNavController().navigate(R.id.navigation_calc)
         }
 
     }

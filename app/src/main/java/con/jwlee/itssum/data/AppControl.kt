@@ -30,10 +30,11 @@ class AppControl {
         // 변동값 :
 
         // 1 : 중구, 2 : 동구, 3 : 미추홀구, 4 : 연수구, 5: 남동구, 6: 부평구, 7: 계양구, 8: 서구, 9: 인천이음// 기본값 : 중구
-
         var sLocation : Int = 1
         var sSale : String = "10%"
         var sName : String = "연수구"
+
+        var appIdx = 1
     }
 
 

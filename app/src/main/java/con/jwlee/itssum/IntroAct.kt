@@ -49,7 +49,7 @@ class IntroAct : AppCompatActivity() {
                 android.R.anim.fade_in,
                 android.R.anim.fade_out
             )
-        }, 3500)
+        }, 3200)
 
         val ivTarget = GlideDrawableImageViewTarget(introImage)
         Glide.with(this).load(R.raw.intro_gif).into(ivTarget)

@@ -23,6 +23,10 @@ class Util {
         return result
     }
 
+    fun toastShort(context : Context, str : String) {
+        Toast.makeText(context, str, Toast.LENGTH_SHORT).show()
+    }
+
     fun toastLong(context : Context, str : String) {
         Toast.makeText(context, str, Toast.LENGTH_LONG).show()
     }
