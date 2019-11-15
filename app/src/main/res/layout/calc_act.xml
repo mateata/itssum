@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/White">
 
@@ -17,12 +18,13 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/bt_location"
+            android:id="@+id/bt_loc"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:background="@drawable/bar_yeonsu"/>
 
         <TextView
+            android:id="@+id/text_loc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -68,7 +70,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="@dimen/calc_margin"
         android:layout_marginRight="@dimen/calc_margin"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/saleadd"/>
 
     <GridLayout
@@ -78,7 +80,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="@dimen/calc_margin"
         android:layout_marginRight="@dimen/calc_margin"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="@dimen/tap_bottom_margin"
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
@@ -87,28 +89,110 @@
 
         <Button
             android:id="@+id/calc_7"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
             android:background="@drawable/calc_7"/>
         <Button
             android:id="@+id/calc_8"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
             android:background="@drawable/calc_8"/>
         <Button
             android:id="@+id/calc_9"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
             android:background="@drawable/calc_9"/>
         <Button
             android:id="@+id/calc_x"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
             android:background="@drawable/calc_x"/>
+
         <Button
             android:id="@+id/calc_4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginTop="@dimen/calc_btn_space"
             android:background="@drawable/calc_4"/>
+        <Button
+            android:id="@+id/calc_5"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
+            android:layout_marginTop="@dimen/calc_btn_space"
+            android:background="@drawable/calc_5"/>
+        <Button
+            android:id="@+id/calc_6"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
+            android:layout_marginTop="@dimen/calc_btn_space"
+            android:background="@drawable/calc_6"/>
+        <Button
+            android:id="@+id/calc_minus"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
+            android:layout_marginTop="@dimen/calc_btn_space"
+            android:background="@drawable/calc_minus"/>
+
+        <Button
+            android:id="@+id/calc_1"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginTop="@dimen/calc_btn_space"
+            android:background="@drawable/calc_1"/>
+        <Button
+            android:id="@+id/calc_2"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
+            android:layout_marginTop="@dimen/calc_btn_space"
+            android:background="@drawable/calc_2"/>
+        <Button
+            android:id="@+id/calc_3"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
+            android:layout_marginTop="@dimen/calc_btn_space"
+            android:background="@drawable/calc_3"/>
+        <Button
+            android:id="@+id/calc_plus"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
+            android:layout_marginTop="@dimen/calc_btn_space"
+            android:background="@drawable/calc_plus"/>
+
+        <Button
+            android:id="@+id/calc_0"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginTop="@dimen/calc_btn_space"
+            android:background="@drawable/calc_0"/>
+        <Button
+            android:id="@+id/calc_per"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
+            android:layout_marginTop="@dimen/calc_btn_space"
+            android:background="@drawable/calc_per"/>
+        <Button
+            android:id="@+id/calc_c"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
+            android:layout_marginTop="@dimen/calc_btn_space"
+            android:background="@drawable/calc_c"/>
+        <Button
+            android:id="@+id/calc_equal"
+            android:layout_width="@dimen/calc_btn_size"
+            android:layout_height="@dimen/calc_btn_size"
+            android:layout_marginLeft="@dimen/calc_btn_space"
+            android:layout_marginTop="@dimen/calc_btn_space"
+            android:background="@drawable/calc_equal"/>
     </GridLayout>
 </LinearLayout>

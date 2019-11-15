@@ -30,13 +30,19 @@
     <fragment
         android:id="@+id/navigation_marketlist"
         android:name="con.jwlee.itssum.ui.home.MarketListFragment"
-        android:label="@string/guplace_yeonsu"
+        android:label="@string/title_home"
         tools:layout="@layout/market_list_ac" />
 
     <fragment
         android:id="@+id/navigation_gooddetail"
         android:name="con.jwlee.itssum.ui.community.GoodDetailFragment"
-        android:label="@string/guplace_yeonsu"
+        android:label="@string/title_dashboard"
         tools:layout="@layout/good_detail" />
+
+    <fragment
+        android:id="@+id/navigation_calc"
+        android:name="con.jwlee.itssum.ui.splash.CalcFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/calc_act" />
 
 </navigation>

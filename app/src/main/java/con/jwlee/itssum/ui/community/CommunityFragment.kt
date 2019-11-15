@@ -98,7 +98,7 @@ class CommunityFragment : Fragment(), View.OnClickListener {
         bt_location.setBackgroundResource(locBtnId)
 
         bt_location.setOnClickListener {
-            val intent = Intent(this.requireContext(), SetLocalActivity::class.java)
+            val intent = Intent(activity, SetLocalActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
             startActivity(intent)
         }

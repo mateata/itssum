@@ -31,7 +31,7 @@ class MenuAdapter(context: Context, resource: Int, settingMenuList: ArrayList<Me
     private fun getMenuIcon(menuPosition: Int): Int {
         var resourceID = 0
         when (menuPosition) {
-            0 -> resourceID = R.drawable.notice_icon
+            0 -> resourceID = R.drawable.location_icon
             1 -> resourceID = R.drawable.notice_icon
             2 -> resourceID = R.drawable.qna_icon
             3 -> resourceID = R.drawable.call_icon

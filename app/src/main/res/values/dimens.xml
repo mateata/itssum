@@ -8,4 +8,6 @@
 
     <dimen name="good_place_margin">25dp</dimen>
     <dimen name="calc_margin">46dp</dimen>
+    <dimen name="calc_btn_size">65dp</dimen>
+    <dimen name="calc_btn_space">20dp</dimen>
 </resources>

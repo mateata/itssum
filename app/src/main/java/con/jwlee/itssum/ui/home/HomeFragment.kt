@@ -135,9 +135,12 @@ class HomeFragment : BaseFragment() {
         bt_location.setBackgroundResource(locBtnId)
 
         bt_location.setOnClickListener {
-            val intent = Intent(this.requireContext(), SetLocalActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+            val intent = Intent(activity, SetLocalActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
+        }
+        bt_calc.setOnClickListener {
+            findNavController().navigate(R.id.navigation_calc)
         }
 
     }
