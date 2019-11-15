@@ -109,6 +109,7 @@ class HomeFragment : BaseFragment() {
 
         // 리스트 우선 세팅하고 나머지 세부 뷰
 
+        AppControl.appIdx = 1
         header_title.setText(R.string.title_home)
         home_desc_market.setText(AppControl.sName + " " + getString(R.string.home_desc_market))
         home_desc_good.setText(AppControl.sName + " " + getString(R.string.home_desc_good))

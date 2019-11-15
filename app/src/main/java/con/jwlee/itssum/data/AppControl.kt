@@ -33,6 +33,8 @@ class AppControl {
         var sLocation : Int = 1
         var sSale : String = "10%"
         var sName : String = "연수구"
+
+        var appIdx = 1
     }
 
 
