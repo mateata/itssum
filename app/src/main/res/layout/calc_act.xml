@@ -41,7 +41,7 @@
         android:layout_marginTop="20dp"
         android:orientation="horizontal">
         <EditText
-            android:id="@+id/searchEt"
+            android:id="@+id/edit_val"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal|bottom"
@@ -66,6 +66,7 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/sale_add"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="@dimen/calc_margin"
@@ -195,4 +196,12 @@
             android:layout_marginTop="@dimen/calc_btn_space"
             android:background="@drawable/calc_equal"/>
     </GridLayout>
+    <TextView
+        android:id="@+id/tv_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        tools:text="10%"
+        android:textSize="12dp"
+        android:visibility="invisible"/>
 </LinearLayout>
