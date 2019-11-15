@@ -16,8 +16,6 @@ import kotlinx.android.synthetic.main.intro_act.*
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget
 
 
-
-
 class IntroAct : AppCompatActivity() {
 
     val db = FirebaseFirestore.getInstance()
@@ -33,10 +31,15 @@ class IntroAct : AppCompatActivity() {
 
         // 지역설정을 불러낸다. (기본값 : 연수구 = 4)
 
-/*        AppControl(pref.getInt(AppControl.locationKey,1),pref.getString(AppControl.saleKey,"10%").toString(),
-            pref.getString(AppControl.nameKey,getString(R.string.guplace_yeonsu)).toString())*/
+        AppControl.sLocation = pref.getInt(AppControl.locationKey,1)
+        AppControl.sSale = pref.getString(AppControl.saleKey,"10%").toString()
+        AppControl.sName = pref.getString(AppControl.nameKey, getString(R.string.guplace_yeonsu)).toString()
 
+        //dbUpdate()
+    }
 
+    override fun onResume() {
+        super.onResume()
         window.decorView.postDelayed({
             val intent = Intent(this, SplashActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
@@ -50,8 +53,8 @@ class IntroAct : AppCompatActivity() {
 
         val ivTarget = GlideDrawableImageViewTarget(introImage)
         Glide.with(this).load(R.raw.intro_gif).into(ivTarget)
-        dbUpdate()
     }
+
 
     fun dbUpdate() {
         val app = AppControl

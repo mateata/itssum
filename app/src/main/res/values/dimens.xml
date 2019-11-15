@@ -7,4 +7,5 @@
     <dimen name="good_item_marginleft">120dp</dimen>
 
     <dimen name="good_place_margin">25dp</dimen>
+    <dimen name="calc_margin">46dp</dimen>
 </resources>
