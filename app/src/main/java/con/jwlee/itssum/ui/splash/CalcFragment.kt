@@ -44,7 +44,8 @@ class CalcFragment : BaseFragment(){
 
     fun init() {
         mContext = this.requireContext()
-        text_loc.setText(AppControl.sSale)
+        text_location.setText(AppControl.sName)
+        text_per.setText(AppControl.sSale)
         header_title.setText(mContext.getString(R.string.title_calc))
 
         bt_back.setOnClickListener {
