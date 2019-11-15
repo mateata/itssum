@@ -29,6 +29,23 @@
         android:textStyle="bold"
         android:textSize="18sp" />
 
+    <EditText
+        android:id="@+id/searchEt"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginLeft="11dp"
+        android:layout_toLeftOf="@+id/bt_search"
+        android:background="@drawable/edit_rounded"
+        android:inputType="text"
+        android:imeOptions="actionSearch"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
     <Button
         android:id="@+id/bt_calc"
         android:layout_width="50dp"

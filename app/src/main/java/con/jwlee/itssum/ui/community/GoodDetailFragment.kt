@@ -35,7 +35,7 @@ class GoodDetailFragment : BaseFragment() {
         place_name.setText(goodData.name)
         place_phone.setText(goodData.phone)
         place_intro.setText(goodData.intro)
-        if(goodData.intro == null) {
+        if("".equals(goodData.intro)) {
             place_intro.visibility = View.GONE
         }
         place_address.setText(goodData.address)

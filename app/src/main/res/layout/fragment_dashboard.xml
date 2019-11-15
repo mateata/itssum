@@ -34,7 +34,6 @@
                 android:background="@drawable/good_selected"
                 android:paddingLeft="10dp"
                 android:text="@string/good_gubun_1"
-                android:textColor="@color/White"
                 android:textSize="16dp"/>
 
             <TextView
@@ -124,6 +123,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
+        android:layout_marginBottom="@dimen/tap_bottom_margin"
         app:layoutManager="LinearLayoutManager"
         tools:listitem="@layout/good_item"
         app:layout_constraintEnd_toEndOf="parent"

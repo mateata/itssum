@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/list_toolbar"
-        layout="@layout/main_toolbar"/>
+        layout="@layout/good_toolbar"/>
 
     <LinearLayout
         android:id="@+id/category_sale"
