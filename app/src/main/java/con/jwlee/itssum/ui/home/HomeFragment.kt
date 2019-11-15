@@ -16,7 +16,7 @@ import con.jwlee.itssum.ui.BaseFragment
 import con.jwlee.itssum.util.DLog
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import kotlinx.android.synthetic.main.main_toolbar.header_title
+import kotlinx.android.synthetic.main.main_toolbar.*
 
 
 class HomeFragment : BaseFragment() {
@@ -116,6 +116,7 @@ class HomeFragment : BaseFragment() {
         home_desc_good.setOnClickListener {
             findNavController().navigate(R.id.navigation_dashboard)
         }
+        bt_search.visibility = View.GONE
 
     }
 

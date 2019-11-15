@@ -68,7 +68,6 @@ class GoodDetailFragment : BaseFragment() {
     }
 
     override fun onBack() {
-        super.onBack()
         findNavController().navigate(R.id.navigation_dashboard)
     }
 }
