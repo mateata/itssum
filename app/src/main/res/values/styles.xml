@@ -22,18 +22,23 @@
 
     <style name="NanumTextViewStyle" parent="@android:style/Widget.DeviceDefault.TextView">
         <item name="android:fontFamily">@font/nanum</item>
+        <item name="android:textColor">@color/TextColor</item>
     </style>
     <style name="NanumButtonStyle" parent="@android:style/Widget.DeviceDefault.Button">
         <item name="android:fontFamily">@font/nanum</item>
+        <item name="android:textColor">@color/TextColor</item>
     </style>
     <style name="NanumEditTextStyle" parent="@android:style/Widget.DeviceDefault.EditText">
         <item name="android:fontFamily">@font/nanum</item>
+        <item name="android:textColor">@color/TextColor</item>
     </style>
     <style name="NanumRadioButtonStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">
         <item name="android:fontFamily">@font/nanum</item>
+        <item name="android:textColor">@color/TextColor</item>
     </style>
     <style name="NanumCheckboxStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
         <item name="android:fontFamily">@font/nanum</item>
+        <item name="android:textColor">@color/TextColor</item>
     </style>
     
 </resources>

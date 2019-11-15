@@ -5,4 +5,6 @@
     <dimen name="tap_bottom_margin">50dp</dimen>
     <dimen name="good_gubun_width">95dp</dimen>
     <dimen name="good_item_marginleft">120dp</dimen>
+
+    <dimen name="good_place_margin">25dp</dimen>
 </resources>

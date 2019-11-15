@@ -6,7 +6,8 @@
 
     <color name="MainColor">#fbc93d</color>
     <color name="MainColor2">#FFBF4A</color>
-    <color name="TextColor">#595757</color>
+    <color name="TextColor">#595757</color>523f1c
+    <color name="TextColor2">#523f1c</color>
     <color name="Red">#D81B60</color>
     <color name="White">#FFFFFF</color>
     <color name="divide_color">#EFEFEF</color>
@@ -17,5 +18,6 @@
 
     <color name="Ieum_chp_color">#00aadb</color>
     <color name="Ieum_exp_color">#f0b836</color>
+    <color name="gray_btn">#e9e9e9</color>
 
 </resources>
