@@ -50,21 +50,11 @@
         android:id="@+id/bt_calc"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="46dp"
-        android:layout_alignRight="@id/bt_search"
-        android:background="@drawable/bt_calc"
-        android:visibility="gone"/>
-
-    <Button
-        android:id="@+id/bt_search"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
         android:paddingLeft="0dp"
         android:paddingRight="0dp"
-        android:background="@drawable/bt_search" />
+        android:background="@drawable/bt_calc" />
 
 </RelativeLayout>

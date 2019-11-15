@@ -2,6 +2,7 @@ package con.jwlee.itssum.ui.community
 
 import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -23,11 +24,15 @@ import con.jwlee.itssum.data.AppControl
 import con.jwlee.itssum.data.GoodAdapter
 import con.jwlee.itssum.data.GoodData
 import con.jwlee.itssum.ui.RecyclerDeco
+import con.jwlee.itssum.ui.splash.SetLocalActivity
 import con.jwlee.itssum.util.DLog
 import con.jwlee.itssum.util.Util
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import kotlinx.android.synthetic.main.good_toolbar.*
+import kotlinx.android.synthetic.main.good_toolbar.bt_location
+import kotlinx.android.synthetic.main.good_toolbar.searchEt
+import kotlinx.android.synthetic.main.home_toolbar.*
 import kotlinx.android.synthetic.main.main_toolbar.header_title
 
 
@@ -77,6 +82,26 @@ class CommunityFragment : Fragment(), View.OnClickListener {
         good_gubun_salon.setOnClickListener(this)
         good_check.setOnClickListener(this)
         bt_search.setOnClickListener(this)
+
+        // 상단 지역버튼 세팅
+        var locBtnId = R.drawable.bar_yeonsu
+        when(AppControl.sLocation) {
+            1 -> {locBtnId = R.drawable.bar_middle}
+            2 -> {locBtnId = R.drawable.bar_east}
+            3 -> {locBtnId = R.drawable.bar_michuhol}
+            4 -> {locBtnId = R.drawable.bar_yeonsu}
+            5 -> {locBtnId = R.drawable.bar_southeast}
+            6 -> {locBtnId = R.drawable.bar_bupyong}
+            7 -> {locBtnId = R.drawable.bar_geyang}
+            8 -> {locBtnId = R.drawable.bar_west}
+        }
+        bt_location.setBackgroundResource(locBtnId)
+
+        bt_location.setOnClickListener {
+            val intent = Intent(this.requireContext(), SetLocalActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+            startActivity(intent)
+        }
 
         imm = mContext.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
 

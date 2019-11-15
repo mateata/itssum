@@ -23,10 +23,10 @@ class GoodDetailFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init(view)
+        init()
     }
 
-    fun init(view : View) {
+    fun init() {
         val bundle = arguments?.getBundle("detailData")
         val goodData : GoodData = bundle?.getSerializable("goodData") as GoodData
         //영역 setText

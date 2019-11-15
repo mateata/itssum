@@ -1,5 +1,6 @@
 package con.jwlee.itssum.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,10 +14,12 @@ import con.jwlee.itssum.data.AppControl
 import con.jwlee.itssum.data.Mvalue
 import con.jwlee.itssum.ui.BaseActivity
 import con.jwlee.itssum.ui.BaseFragment
+import con.jwlee.itssum.ui.splash.SetLocalActivity
 import con.jwlee.itssum.util.DLog
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import kotlinx.android.synthetic.main.main_toolbar.*
+import kotlinx.android.synthetic.main.home_toolbar.*
+import kotlinx.android.synthetic.main.main_toolbar.header_title
 
 
 class HomeFragment : BaseFragment() {
@@ -116,7 +119,26 @@ class HomeFragment : BaseFragment() {
         home_desc_good.setOnClickListener {
             findNavController().navigate(R.id.navigation_dashboard)
         }
-        bt_search.visibility = View.GONE
+
+        // 상단 지역버튼 세팅
+        var locBtnId = R.drawable.bar_yeonsu
+        when(AppControl.sLocation) {
+            1 -> {locBtnId = R.drawable.bar_middle}
+            2 -> {locBtnId = R.drawable.bar_east}
+            3 -> {locBtnId = R.drawable.bar_michuhol}
+            4 -> {locBtnId = R.drawable.bar_yeonsu}
+            5 -> {locBtnId = R.drawable.bar_southeast}
+            6 -> {locBtnId = R.drawable.bar_bupyong}
+            7 -> {locBtnId = R.drawable.bar_geyang}
+            8 -> {locBtnId = R.drawable.bar_west}
+        }
+        bt_location.setBackgroundResource(locBtnId)
+
+        bt_location.setOnClickListener {
+            val intent = Intent(this.requireContext(), SetLocalActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+            startActivity(intent)
+        }
 
     }
 
