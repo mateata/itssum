@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import con.jwlee.itssum.R
 import con.jwlee.itssum.data.GoodData
 import con.jwlee.itssum.ui.BaseFragment
+import con.jwlee.itssum.util.Util
 import kotlinx.android.synthetic.main.good_detail.*
 import kotlinx.android.synthetic.main.main_toolbar.*
 
@@ -62,9 +63,29 @@ class GoodDetailFragment : BaseFragment() {
             place_delivery_text.setTextColor(this.requireContext().getColor(R.color.TextColor))
         }
 
+        // 하단 품목/가격뷰. 항목이 없으면 지우고 있으면 값을 세팅
+        if(goodData.itemName1 == "" || goodData.itemName1 == "-") {
+            market_itemview1.visibility = View.GONE
+        } else {
+            market_itemname1.setText(goodData.itemName1)
+            market_itemval1.setText(Util().commaNumber(goodData.itemval1))
+        }
+        if(goodData.itemName2 == "" || goodData.itemName2 == "-") {
+            market_itemview2.visibility = View.GONE
+        } else {
+            market_itemname2.setText(goodData.itemName2)
+            market_itemval2.setText(Util().commaNumber(goodData.itemval2))
+        }
+        if(goodData.itemName3 == "" || goodData.itemName3 == "-") {
+            market_itemview3.visibility = View.GONE
+        } else {
+            market_itemname3.setText(goodData.itemName3)
+            market_itemval3.setText(Util().commaNumber(goodData.itemval3))
+        }
         bt_back.setOnClickListener {
             findNavController().navigate(R.id.navigation_dashboard)
         }
+
     }
 
     override fun onBack() {

@@ -82,6 +82,7 @@ class CalcFragment : BaseFragment(){
         var engine: ScriptEngine = manager.getEngineByName("rhino")
         var obj: Any? = engine.eval(getstr)
         var result = obj.toString()
+        result = result.substring(0, result.length-2);
         return result
     }
 

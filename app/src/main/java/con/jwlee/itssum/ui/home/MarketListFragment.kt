@@ -22,7 +22,6 @@ import con.jwlee.itssum.ui.RecyclerDeco
 import con.jwlee.itssum.util.Util
 import kotlinx.android.synthetic.main.good_toolbar.*
 import kotlinx.android.synthetic.main.main_toolbar.*
-import kotlinx.android.synthetic.main.main_toolbar.bt_back
 import kotlinx.android.synthetic.main.main_toolbar.bt_search
 import kotlinx.android.synthetic.main.main_toolbar.header_title
 import kotlinx.android.synthetic.main.market_list_ac.*
@@ -189,10 +188,6 @@ class MarketListFragment : BaseFragment() {
             imm.hideSoftInputFromWindow(searchEt.windowToken, 0)
             searchEt.visibility = View.GONE
         }
-    }
-
-    override fun onBack() {
-        findNavController().navigate(R.id.navigation_home)
     }
 
 

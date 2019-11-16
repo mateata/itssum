@@ -92,14 +92,14 @@ class CommunityParser {
                             7 -> { goodData.time = parser.getText().trim() }
                             8 -> { goodData.delivery = if(parser.getText().trim().equals("Y")) {true} else {false}  }
                             9 -> { goodData.parking = if(parser.getText().trim().equals("Y")) {true} else {false}  }
-                            8 -> { goodData.previous = if(parser.getText().trim().equals("Y")) {true} else {false}  }
-                            9 -> { goodData.favorite = if(parser.getText().trim().equals("Y")) {true} else {false}  }
-                            10 -> { goodData.itemName1 = parser.getText().trim() }
-                            11 -> { goodData.itemval1 = Util().setNumber(parser.getText().trim()) }
-                            12 -> { goodData.itemName2 = parser.getText().trim() }
-                            13 -> { goodData.itemval2 = Util().setNumber(parser.getText().trim()) }
-                            14 -> { goodData.itemName3 = parser.getText().trim() }
-                            15 -> { goodData.itemval3 = Util().setNumber(parser.getText().trim()) }
+                            10 -> { goodData.previous = if(parser.getText().trim().equals("Y")) {true} else {false}  }
+                            11 -> { goodData.favorite = if(parser.getText().trim().equals("Y")) {true} else {false}  }
+                            12 -> { goodData.itemName1 = parser.getText().trim() }
+                            13 -> { goodData.itemval1 = Util().setNumber(parser.getText().trim()) }
+                            14 -> { goodData.itemName2 = parser.getText().trim() }
+                            15 -> { goodData.itemval2 = Util().setNumber(parser.getText().trim()) }
+                            16 -> { goodData.itemName3 = parser.getText().trim() }
+                            17 -> { goodData.itemval3 = Util().setNumber(parser.getText().trim()) }
                         }
                     }
                 }
