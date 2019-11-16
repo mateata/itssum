@@ -10,4 +10,5 @@
     <dimen name="calc_margin">46dp</dimen>
     <dimen name="calc_btn_size">65dp</dimen>
     <dimen name="calc_btn_space">20dp</dimen>
+    <dimen name="home_btn_space">30dp</dimen>
 </resources>

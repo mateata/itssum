@@ -26,7 +26,7 @@ class CompareAdapter(private val items : ArrayList<MData>, context: Context) : R
         items[position].let { data ->
             with(holder) {
                 val listener = View.OnClickListener {it ->
-                    Toast.makeText(it.context, "상세 : ${data.name}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(it.context, "${data.item} : ${data.name}", Toast.LENGTH_SHORT).show()
                 }
                 itemName.setOnClickListener(listener)
                 itemName.setText(data.item)
