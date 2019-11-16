@@ -29,6 +29,9 @@ class GoodAdapter(private val items : ArrayList<GoodData>) : RecyclerView.Adapte
                 itemName.setText(data.name)
                 itemAddr.setText(data.address)
                 itemPhone.setText(data.phone)
+                if(data.favorite) {
+                    favorite.setImageResource(R.drawable.bt_favorite2)
+                }
             }
         }
 
@@ -41,6 +44,7 @@ class GoodAdapter(private val items : ArrayList<GoodData>) : RecyclerView.Adapte
         val itemName = itemView.item_name
         val itemAddr = itemView.item_address
         val itemPhone = itemView.item_phone
+        val favorite = itemView.favorite_check
     }
 
     interface OnItemClickListener {

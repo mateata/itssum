@@ -54,7 +54,7 @@
         android:gravity="center_horizontal|bottom">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/favorite_check"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:layout_marginLeft="2dp"

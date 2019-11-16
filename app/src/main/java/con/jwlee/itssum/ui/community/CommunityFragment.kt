@@ -45,12 +45,12 @@ class CommunityFragment : Fragment(), View.OnClickListener {
     var salonList : ArrayList<GoodData> = ArrayList<GoodData>()
     var goodMarketList : ArrayList<GoodData> = ArrayList<GoodData>()
     var searchList : ArrayList<GoodData> = ArrayList<GoodData>()
-
+    var favoriteList : ArrayList<GoodData> = ArrayList<GoodData>()
 
     val db = FirebaseFirestore.getInstance()
     lateinit var mContext : Context
     lateinit var imm : InputMethodManager
-
+    var favoYn = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -80,7 +80,10 @@ class CommunityFragment : Fragment(), View.OnClickListener {
         good_gubun_caffe.setOnClickListener(this)
         good_gubun_food.setOnClickListener(this)
         good_gubun_salon.setOnClickListener(this)
+        good_text.setOnClickListener(this)
         good_check.setOnClickListener(this)
+        favorite_text.setOnClickListener(this)
+        favorite_check.setOnClickListener(this)
         bt_search.setOnClickListener(this)
 
         // 상단 지역버튼 세팅
@@ -113,6 +116,14 @@ class CommunityFragment : Fragment(), View.OnClickListener {
             R.id.good_gubun_food -> {selectSortBtn(1)}
             R.id.good_gubun_caffe -> {selectSortBtn(2)}
             R.id.good_gubun_salon -> {selectSortBtn(3)}
+            R.id.good_text -> {
+                good_check.toggle()
+                if (good_check.isChecked()) {
+                    selectSortBtn(4)
+                } else {
+                    selectSortBtn(0)
+                }
+            }
             R.id.good_check -> {
                 if (good_check.isChecked()) {
                     selectSortBtn(4)
@@ -120,6 +131,22 @@ class CommunityFragment : Fragment(), View.OnClickListener {
                     selectSortBtn(0)
                 }
             }
+            R.id.favorite_text -> {
+                favorite_check.toggle()
+                if (favorite_check.isChecked()) {
+                    selectSortBtn(6)
+                } else {
+                    selectSortBtn(0)
+                }
+            }
+            R.id.favorite_check -> {
+                if (favorite_check.isChecked()) {
+                    selectSortBtn(6)
+                } else {
+                    selectSortBtn(0)
+                }
+            }
+
             R.id.bt_search -> { searchBtn() }
         }
     }
@@ -183,6 +210,10 @@ class CommunityFragment : Fragment(), View.OnClickListener {
                 goodMarketList.add(good)
             }
 
+            if(good.favorite) { // 착한가게
+                favoriteList.add(good)
+            }
+
             if(good.sector.equals("식사")) {
                 foodList.add(good)
             } else if(good.sector.equals("제과.카페")) {
@@ -228,12 +259,15 @@ class CommunityFragment : Fragment(), View.OnClickListener {
                 good_gubun_salon.background = mContext.getDrawable(R.drawable.good_selected)
             }
             // 4번은 착한가게만 체크박스
-            4 -> { sortList = salonList}
+            4 -> { sortList = goodMarketList}
 
+            // 5번은 검색
             5 -> {
                 sortList = searchList
                 searchEt.visibility = View.GONE
             }
+            // 6번은 나의 찜한가게
+            6 -> { sortList = favoriteList}
         }
 
         var adapter = GoodAdapter(sortList)

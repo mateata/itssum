@@ -64,19 +64,19 @@ class GoodDetailFragment : BaseFragment() {
         }
 
         // 하단 품목/가격뷰. 항목이 없으면 지우고 있으면 값을 세팅
-        if(goodData.itemName1 == "") {
+        if(goodData.itemName1 == "" || goodData.itemName1 == "-") {
             market_itemview1.visibility = View.GONE
         } else {
             market_itemname1.setText(goodData.itemName1)
             market_itemval1.setText(Util().commaNumber(goodData.itemval1))
         }
-        if(goodData.itemName2 == "") {
+        if(goodData.itemName2 == "" || goodData.itemName2 == "-") {
             market_itemview2.visibility = View.GONE
         } else {
             market_itemname2.setText(goodData.itemName2)
             market_itemval2.setText(Util().commaNumber(goodData.itemval2))
         }
-        if(goodData.itemName3 == "") {
+        if(goodData.itemName3 == "" || goodData.itemName3 == "-") {
             market_itemview3.visibility = View.GONE
         } else {
             market_itemname3.setText(goodData.itemName3)
