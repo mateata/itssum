@@ -152,8 +152,44 @@
         android:layout_height="3.5dp"
         android:background="@color/divide_color"
         />
-    <LinearLayout
-        android:id="@+id/market_item1"
+    <RelativeLayout
+        android:id="@+id/market_itemview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="@dimen/good_place_margin"
+        android:layout_marginRight="@dimen/good_place_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/market_itemname1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            tools:text="갈비탕"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:src="@drawable/img_dot_line"/>
+
+        <TextView
+            android:id="@+id/market_itemval1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            tools:text="10,000원"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/market_itemview2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -163,10 +199,66 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/market_itemname2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             tools:text="갈비탕"
             android:textSize="16sp"/>
 
-    </LinearLayout>
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:src="@drawable/img_dot_line"/>
+
+        <TextView
+            android:id="@+id/market_itemval2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            tools:text="10,000원"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/market_itemview3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="@dimen/good_place_margin"
+        android:layout_marginRight="@dimen/good_place_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/market_itemname3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+
+            tools:text="갈비탕"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:src="@drawable/img_dot_line"/>
+
+        <TextView
+            android:id="@+id/market_itemval3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            tools:text="10,000원"
+            android:textSize="16sp"/>
+    </RelativeLayout>
 </LinearLayout>

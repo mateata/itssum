@@ -53,7 +53,6 @@ class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener, View.OnCli
         menubtn_favorite.setOnClickListener(this)
         menubtn_market.setOnClickListener(this)
         ieum_view.setOnClickListener(this)
-        call_view.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -70,7 +69,7 @@ class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener, View.OnCli
                     startActivity(i);
                 }
             }
-            R.id.call_view -> {
+            R.id.menubtn_calc -> {
                 findNavController().navigate(R.id.navigation_calc)
             }
             else -> {Util().toastLong(mContext, getString(R.string.menu_prepare))}
