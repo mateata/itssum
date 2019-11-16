@@ -99,7 +99,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:orientation="horizontal">
 
         <TextView
@@ -146,5 +147,26 @@
             android:textAlignment="center"
             android:textSize="14sp"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3.5dp"
+        android:background="@color/divide_color"
+        />
+    <LinearLayout
+        android:id="@+id/market_item1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="@dimen/good_place_margin"
+        android:layout_marginRight="@dimen/good_place_margin"
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="갈비탕"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
 </LinearLayout>
