@@ -32,7 +32,6 @@
                 android:layout_height="40dp"
                 android:gravity="center"
                 android:background="@drawable/good_selected"
-                android:paddingLeft="10dp"
                 android:text="@string/good_gubun_1"
                 android:textSize="16dp"/>
 
@@ -52,7 +51,6 @@
                 android:background="@drawable/line_outer"
                 android:text="@string/good_gubun_3"
                 android:gravity="center"
-                android:paddingLeft="10dp"
                 android:textSize="16dp"/>
 
             <TextView
@@ -62,7 +60,6 @@
                 android:background="@drawable/line_outer"
                 android:text="@string/good_gubun_4"
                 android:gravity="center"
-                android:paddingLeft="10dp"
                 android:textSize="16dp"/>
 
         </GridLayout>
