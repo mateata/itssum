@@ -9,17 +9,40 @@
         android:id="@+id/navigation_home"
         android:name="con.jwlee.itssum.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_to_navigation_marketlist"
+            app:destination="@id/navigation_marketlist" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="con.jwlee.itssum.ui.dashboard.DashboardFragment"
+        android:name="con.jwlee.itssum.ui.community.CommunityFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="con.jwlee.itssum.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_menu"
+        android:name="con.jwlee.itssum.ui.menu.MenuFragment"
+        android:label="@string/title_menu"
+        tools:layout="@layout/fragment_menu" />
+
+    <fragment
+        android:id="@+id/navigation_marketlist"
+        android:name="con.jwlee.itssum.ui.home.MarketListFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/market_list_ac" />
+
+    <fragment
+        android:id="@+id/navigation_gooddetail"
+        android:name="con.jwlee.itssum.ui.community.GoodDetailFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/good_detail" />
+
+    <fragment
+        android:id="@+id/navigation_calc"
+        android:name="con.jwlee.itssum.ui.splash.CalcFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/calc_act" />
+
 </navigation>

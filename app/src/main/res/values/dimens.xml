@@ -2,4 +2,13 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="tap_bottom_margin">50dp</dimen>
+    <dimen name="good_gubun_width">95dp</dimen>
+    <dimen name="good_item_marginleft">120dp</dimen>
+
+    <dimen name="good_place_margin">25dp</dimen>
+    <dimen name="calc_margin">46dp</dimen>
+    <dimen name="calc_btn_size">65dp</dimen>
+    <dimen name="calc_btn_space">20dp</dimen>
+    <dimen name="home_btn_space">30dp</dimen>
 </resources>

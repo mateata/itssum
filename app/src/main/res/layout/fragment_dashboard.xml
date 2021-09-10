@@ -1,19 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_dashboard"
+    <include
+        android:id="@+id/good_toolbar"
+        layout="@layout/good_toolbar"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:orientation="horizontal">
+
+        <GridLayout
+            android:id="@+id/good_gubun"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_gravity="center"
+            android:columnCount="4"
+            android:rowCount="1">
+            <TextView
+                android:id="@+id/good_gubun_all"
+                android:layout_width="@dimen/good_gubun_width"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:background="@drawable/good_selected"
+                android:text="@string/good_gubun_1"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/good_gubun_food"
+                android:layout_width="@dimen/good_gubun_width"
+                android:layout_height="40dp"
+                android:background="@drawable/line_outer"
+                android:gravity="center"
+                android:text="@string/good_gubun_2"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/good_gubun_caffe"
+                android:layout_width="@dimen/good_gubun_width"
+                android:layout_height="40dp"
+                android:background="@drawable/line_outer"
+                android:text="@string/good_gubun_3"
+                android:gravity="center"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/good_gubun_salon"
+                android:layout_width="@dimen/good_gubun_width"
+                android:layout_height="40dp"
+                android:background="@drawable/line_outer"
+                android:text="@string/good_gubun_4"
+                android:gravity="center"
+                android:textSize="16dp"/>
+
+        </GridLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3.5dp"
+        android:background="@color/divide_color"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/favorite_icon"/>
+
+        <TextView
+            android:id="@+id/favorite_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/good_desc_favorite"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:textSize="16dp"/>
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/favorite_check"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"/>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="70dp"
+            android:src="@drawable/good_icon"/>
+
+        <TextView
+            android:id="@+id/good_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/good_desc_goodcheck"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:textSize="16dp"/>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/good_check"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3.5dp"
+        android:background="@color/divide_color"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/goodList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_marginBottom="@dimen/tap_bottom_margin"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/good_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="parent"/>
+
+</LinearLayout>

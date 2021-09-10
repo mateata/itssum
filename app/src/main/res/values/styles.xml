@@ -1,11 +1,18 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/TextColor</item>
+        <item name="android:fontFamily">@font/nanum</item>
+        <item name="android:buttonStyle">@style/NanumButtonStyle</item>
+        <item name="android:editTextStyle">@style/NanumEditTextStyle</item>
+        <item name="android:radioButtonStyle">@style/NanumRadioButtonStyle</item>
+        <item name="android:checkboxStyle">@style/NanumCheckboxStyle</item>
+        <item name="android:textViewStyle">@style/NanumTextViewStyle</item>
     </style>
 
     <style name="IntroTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -13,4 +20,25 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <style name="NanumTextViewStyle" parent="@android:style/Widget.DeviceDefault.TextView">
+        <item name="android:fontFamily">@font/nanum</item>
+        <item name="android:textColor">@color/TextColor</item>
+    </style>
+    <style name="NanumButtonStyle" parent="@android:style/Widget.DeviceDefault.Button">
+        <item name="android:fontFamily">@font/nanum</item>
+        <item name="android:textColor">@color/TextColor</item>
+    </style>
+    <style name="NanumEditTextStyle" parent="@android:style/Widget.DeviceDefault.EditText">
+        <item name="android:fontFamily">@font/nanum</item>
+        <item name="android:textColor">@color/TextColor</item>
+    </style>
+    <style name="NanumRadioButtonStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">
+        <item name="android:fontFamily">@font/nanum</item>
+        <item name="android:textColor">@color/TextColor</item>
+    </style>
+    <style name="NanumCheckboxStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
+        <item name="android:fontFamily">@font/nanum</item>
+        <item name="android:textColor">@color/TextColor</item>
+    </style>
+    
 </resources>
